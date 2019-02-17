@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="sqlibc" Version="10.0.0" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
+    </Plugin>
+  </Plugins>
+  <VirtualDirectory Name="src">
+    <VirtualDirectory Name="stdio">
+      <File Name="src/stdio/stdFILE.c"/>
+      <File Name="src/stdio/fgetc.c"/>
+      <File Name="src/stdio/fputc.c"/>
+      <File Name="src/stdio/getchar.c"/>
+      <File Name="src/stdio/putchar.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="internal">
+      <File Name="src/internal/ctypetable.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="ctype">
+      <File Name="src/ctype/iscntrl.c"/>
+      <File Name="src/ctype/isalnum.c"/>
+      <File Name="src/ctype/isdigit.c"/>
+      <File Name="src/ctype/tolower.c"/>
+      <File Name="src/ctype/isprint.c"/>
+      <File Name="src/ctype/isupper.c"/>
+      <File Name="src/ctype/isgraph.c"/>
+      <File Name="src/ctype/isalpha.c"/>
+      <File Name="src/ctype/isblank.c"/>
+      <File Name="src/ctype/toupper.c"/>
+      <File Name="src/ctype/isascii.c"/>
+      <File Name="src/ctype/isxdigit.c"/>
+      <File Name="src/ctype/isspace.c"/>
+      <File Name="src/ctype/ispunct.c"/>
+      <File Name="src/ctype/islower.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="stdlib">
+      <File Name="src/stdlib/strto.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="string">
+      <File Name="src/string/strcmp.c"/>
+      <File Name="src/string/strncpy.c"/>
+      <File Name="src/string/strtok.c"/>
+      <File Name="src/string/memcmp.c"/>
+      <File Name="src/string/memmove.c"/>
+      <File Name="src/string/memset.c"/>
+      <File Name="src/string/memcpy.c"/>
+      <File Name="src/string/memchr.c"/>
+      <File Name="src/string/strlen.c"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="inc">
+    <File Name="inc/sqstdiodefs.h"/>
+    <File Name="inc/sqstdio.h"/>
+    <File Name="inc/sqctype.h"/>
+    <File Name="inc/sqctypetable.h"/>
+    <File Name="inc/sqstdlib.h"/>
+    <File Name="inc/sqstring.h"/>
+  </VirtualDirectory>
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Executable">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="./bin/$(ConfigurationName)/$(ProjectName)" IntermediateDirectory="./build/$(ConfigurationName)" Command="./bin/$(ConfigurationName)/$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="." PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="GNU makefile onestep build"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make clean &amp;&amp; make $(ConfigurationName)</RebuildCommand>
+        <CleanCommand>make clean</CleanCommand>
+        <BuildCommand>make $(ConfigurationName)</BuildCommand>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="release" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-O2;-Wall" C_Options="-O2;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+        <Preprocessor Value="NDEBUG"/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <BuildSystem Name="GNU makefile onestep build"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make clean &amp;&amp; make $(ConfigurationName)</RebuildCommand>
+        <CleanCommand>make clean</CleanCommand>
+        <BuildCommand>make $(ConfigurationName)</BuildCommand>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no" EnableCpp14="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+</CodeLite_Project>
