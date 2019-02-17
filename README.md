@@ -9,4 +9,5 @@ Minimal libc implementation. When I need a function that is a reimplementation o
 ## TODO
 * Big rename actions as they are still prefixed with sq as copied from my old embedded code library.
 * makefiles should now be specified a platform
+* fix warnings, do some cleanup in the whole stdio area
 
