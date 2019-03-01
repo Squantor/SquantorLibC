@@ -1,38 +1,46 @@
-# Project settings
-BIN_NAME = libsqlibc
-SOURCES = src/string/strlen.c src/string/strtok.c src/string/strcmp.c src/string/strncpy.c \
-src/string/memchr.c src/string/memcmp.c src/string/memcpy.c src/string/memmove.c src/string/memset.c \
-src/stdlib/strto.c \
-src/internal/ctypetable.c \
-src/ctype/isspace.c src/ctype/isxdigit.c \
-src/stdio/stdFILE.c src/stdio/getchar.c src/stdio/fgetc.c src/stdio/putchar.c src/stdio/fputc.c
-INCLUDES = -I"../inc"
+# get project settings project settings
+include src/Makefile.mk
+include platform/$(MCU).mk
+
+INCLUDES += -Iplatform
+LIBDIR += -L"./ld"
+LIBS +=
+RLIBDIR += $(LIBDIR)
+RLIBS += $(LIBS)
+DLIBDIR += $(LIBDIR)
+DLIBS += $(LIBS)
 
 # Toolchain settings
-MAKEFILE = Makefile
 MAKE = make
 MKDIR = mkdir
 RM = rm
-CXX = gcc
-CXX_PREFIX = arm-none-eabi-
+C_COMPILER = gcc
+CXX_COMPILER = g++
+GDB = gdb
+TOOLCHAIN_PREFIX = arm-none-eabi-
 SIZE = size
 AR = ar
 OBJDUMP = objdump
+OBJCOPY = objcopy
 
 # Toolchain flags
-COMPILE_FLAGS = -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -std=c11 -mcpu=cortex-m0 -mthumb
-DEFINES = -DCORE_M0
-RDEFINES = -DNDEBUG
-DDEFINES = -DDEBUG
-RCOMPILE_FLAGS = $(DEFINES) $(RDEFINES) -Os
-DCOMPILE_FLAGS = $(DEFINES) $(DDEFINES) -g3 -O0
+COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra -Wno-main -fno-common -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections 
+COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra -Wno-main -fno-common -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions 
+COMPILE_ASM_FLAGS += -c -x assembler-with-cpp
+DEFINES += -DMCU_$(MCU)
+DEFINES_RELEASE = -DNDEBUG
+DEFINES_DEBUG = -DDEBUG
+C_RELEASE_COMPILE_FLAGS = -Os -g  
+C_RELEASE_COMPILE_FLAGS = -Og -g3 
+CXX_RELEASE_COMPILE_FLAGS = -Os -g 
+CXX_DEBUG_COMPILE_FLAGS = -Og -g3
+ASM_RELEASE_COMPILE_FLAGS = 
+ASM_DEBUG_COMPILE_FLAGS = -g3
 
-LINK_FLAGS =
-RLINK_FLAGS =
-DLINK_FLAGS =
-
-# other settings
-SRC_EXT = c
+LINK_FLAGS += -flto -nostdlib -Xlinker --gc-sections -Xlinker -print-memory-usage
+LINK_FLAGS_RELEASE =
+LINK_FLAGS_DEBUG =
+LDSCRIPT = -T"ld/$(MCU).ld"
 
 # Clear built-in rules
 .SUFFIXES:
@@ -43,10 +51,16 @@ SRC_EXT = c
 print-%: ; @echo $*=$($*)
 
 # Combine compiler and linker flags
-release: export CXXFLAGS := $(CXXFLAGS) $(COMPILE_FLAGS) $(RCOMPILE_FLAGS)
-release: export LDFLAGS := $(LINK_FLAGS) $(RLINK_FLAGS)
-debug: export CXXFLAGS := $(CXXFLAGS) $(COMPILE_FLAGS) $(DCOMPILE_FLAGS)
-debug: export LDFLAGS := $(LINK_FLAGS) $(DLINK_FLAGS)
+release: export CFLAGS := $(COMPILE_C_FLAGS) $(C_RELEASE_COMPILE_FLAGS) $(DEFINES_RELEASE) $(DEFINES)
+release: export CXXFLAGS := $(COMPILE_CXX_FLAGS) $(CXX_RELEASE_COMPILE_FLAGS) $(DEFINES_RELEASE) $(DEFINES)
+release: export ASMFLAGS := $(COMPILE_ASM_FLAGS) $(ASM_RELEASE_COMPILE_FLAGS) $(DEFINES_RELEASE) $(DEFINES)
+release: export LDFLAGS := $(LINK_FLAGS) $(LINK_FLAGS_RELEASE) $(LIBDIR) $(RLIBDIR) $(LDSCRIPT)
+release: export LIBS := $(LIBS) $(RLIBS)
+debug: export CFLAGS := $(COMPILE_C_FLAGS) $(C_DEBUG_COMPILE_FLAGS) $(DEFINES_DEBUG) $(DEFINES)
+debug: export CXXFLAGS := $(COMPILE_CXX_FLAGS) $(CXX_DEBUG_COMPILE_FLAGS) $(DEFINES_DEBUG) $(DEFINES)
+debug: export ASMFLAGS := $(COMPILE_ASM_FLAGS) $(ASM_DEBUG_COMPILE_FLAGS) $(DEFINES_DEBUG) $(DEFINES)
+debug: export LDFLAGS := $(LINK_FLAGS) $(LINK_FLAGS_DEBUG) $(LIBDIR) $(DLIBDIR) $(LDSCRIPT)
+debug: export LIBS := $(LIBS) $(DLIBS)
 
 # Build and output paths
 release: export BUILD_PATH := build/release
@@ -60,28 +74,27 @@ debug: export BUILD_TARGET := debug
 
 # Set the object file names, with the source directory stripped
 # from the path, and the build path prepended in its place
-OBJECTS = $(SOURCES:%.$(SRC_EXT)=$(BUILD_PATH)/%.o)
+OBJECTS = $(C_SOURCES:%.c=$(BUILD_PATH)/%.c.o)
+OBJECTS += $(CXX_SOURCES:%.cpp=$(BUILD_PATH)/%.cpp.o)
+OBJECTS += $(S_SOURCES:%.s=$(BUILD_PATH)/%.s.o)
 # Set the dependency files that will be used to add header dependencies
 DEPS = $(OBJECTS:.o=.d)
 
 # Standard, non-optimized release build
-.PHONY: release
 release: dirs
-	$(MAKE) -f $(MAKEFILE) all --no-print-directory
+	# make lpc_chip library if needed
+	$(MAKE) all --no-print-directory
 
 # Debug build for gdb debugging
-.PHONY: debug
 debug: dirs
-	$(MAKE) -f $(MAKEFILE) all --no-print-directory
+	$(MAKE) all --no-print-directory
 
 # Create the directories used in the build
-.PHONY: dirs
 dirs:
 	$(MKDIR) -p $(BUILD_PATH)
 	$(MKDIR) -p $(BIN_PATH)
 
 # Removes all build files
-.PHONY: clean clean_debug clean_release
 clean_debug:
 clean_release:
 clean:
@@ -89,15 +102,18 @@ clean:
 	$(RM) -r bin
 
 # Main rule, checks the executable and symlinks to the output
-all: $(BIN_PATH)/$(BIN_NAME).a
+all: $(BIN_PATH)/$(BIN_NAME).elf
 
-# create the archive
-$(BIN_PATH)/$(BIN_NAME).a: $(OBJECTS)
-	$(CXX_PREFIX)$(AR) -r $@ $(OBJECTS)
-	$(CXX_PREFIX)$(SIZE) $@
+# create the executable
+$(BIN_PATH)/$(BIN_NAME).elf: $(OBJECTS)
+	$(TOOLCHAIN_PREFIX)$(CXX_COMPILER) $(LDFLAGS) $(OBJECTS) -Xlinker -Map="$@.map" -o $@ $(LIBS)
+	# dump size and log to file
+	$(TOOLCHAIN_PREFIX)$(SIZE) -x --format=SysV $@ 
 	date >> size$(BUILD_TARGET).log
-	$(CXX_PREFIX)$(SIZE) $@ >> size$(BUILD_TARGET).log
-	$(CXX_PREFIX)$(OBJDUMP) -h -S "$@" > "$(BIN_PATH)/$(BIN_NAME).lss"
+	$(TOOLCHAIN_PREFIX)$(SIZE) $@ >> size$(BUILD_TARGET).log
+	# create the various output files
+	$(TOOLCHAIN_PREFIX)$(OBJCOPY) -R .stack -O binary $@ $(BIN_PATH)/$(BIN_NAME).bin
+	$(TOOLCHAIN_PREFIX)$(OBJDUMP) -h -S "$@" > "$(BIN_PATH)/$(BIN_NAME).lss"
 
 # Add dependency files, if they exist
 -include $(DEPS)
@@ -106,6 +122,31 @@ $(BIN_PATH)/$(BIN_NAME).a: $(OBJECTS)
 # After the first compilation they will be joined with the rules from the
 # dependency files to provide header dependencies
 # if the source file is in a subdir, create this subdir in the build dir
-$(BUILD_PATH)/%.o: ./../%.$(SRC_EXT)
+$(BUILD_PATH)/%.c.o: ./%.c
 	$(MKDIR) -p $(dir $@) 
-	$(CXX_PREFIX)$(CXX) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+	$(TOOLCHAIN_PREFIX)$(C_COMPILER) $(CFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+
+$(BUILD_PATH)/%.cpp.o: ./%.cpp
+	$(MKDIR) -p $(dir $@) 
+	$(TOOLCHAIN_PREFIX)$(CXX_COMPILER) $(CXXFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+
+$(BUILD_PATH)/%.s.o: ./%.s
+	$(MKDIR) -p $(dir $@) 
+	$(TOOLCHAIN_PREFIX)$(C_COMPILER) $(ASMFLAGS) $(INCLUDES) -MP -MMD -c $< -o $@
+
+# debugging lines
+gdbftdidebug: debug
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/bmpFTDIdebug.txt
+
+gdbftdirelease: release
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/bmpFTDIrelease.txt
+
+gdbusbdebug: debug
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/bmpUSBdebug.txt
+
+gdbusbrelease: debug
+	$(TOOLCHAIN_PREFIX)$(GDB) -x ./gdb_scripts/bmpUSBrelease.txt
+
+
+.PHONY: release debug dirs all clean clean_debug clean_release gdbftdidebug gdbftdirelease gdbusbdebug gdbusbrelease
+
