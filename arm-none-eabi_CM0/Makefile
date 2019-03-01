@@ -1,5 +1,5 @@
 # get project settings project settings
-include src/Makefile.mk
+include ../src/Makefile.mk
 include platform/$(MCU).mk
 
 INCLUDES += -Iplatform
