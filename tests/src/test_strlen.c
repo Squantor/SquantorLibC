@@ -38,10 +38,10 @@ MU_TEST(test_strnlen_empty)
 
 MU_TEST(test_strnlen_invalid) 
 {
-    mu_assert_int_eq(0, sqstrnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid)));
+    mu_assert_int_eq(sizeof(strnlen_test_invalid), sqstrnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid)));
 }
 
-MU_TEST_SUITE_GLOBAL(test_strlen) 
+MU_TEST_SUITE(test_strlen) 
 {
     MU_SUITE_CONFIGURE(&test_strlen_setup, &test_strlen_teardown);
     
@@ -52,8 +52,9 @@ MU_TEST_SUITE_GLOBAL(test_strlen)
     MU_RUN_TEST(test_strnlen_invalid);
 }
 
-void testStrlenSuite()
+int testStrlenSuite()
 {
     MU_RUN_SUITE(test_strlen);
     MU_REPORT();
+    return minunit_fail;
 }

@@ -22,7 +22,6 @@ void test_strtok_teardown(void)
 MU_TEST(test_sqstrstok_r_emptys)
 {
     char *strtok_state;
-    char *token;
     mu_assert(sqstrtok_r(strtok_test_empty, strtok_whitespaces, &strtok_state) == NULL, "sqstrtok(strtok_test_empty, strtok_whitespaces) != NULL");
     mu_assert(sqstrtok_r(strtok_test_no_tok, strtok_whitespaces, &strtok_state) == NULL, "sqstrtok(strtok_test_empty, strtok_whitespaces) != NULL");
 }
@@ -60,7 +59,7 @@ MU_TEST(test_sqstrstok_r_multitoken)
 }
 
 
-MU_TEST_SUITE_GLOBAL(test_strtok) 
+MU_TEST_SUITE(test_strtok) 
 {
     MU_SUITE_CONFIGURE(&test_strtok_setup, &test_strtok_teardown);
     MU_RUN_TEST(test_sqstrstok_r_emptys);
@@ -68,8 +67,9 @@ MU_TEST_SUITE_GLOBAL(test_strtok)
     MU_RUN_TEST(test_sqstrstok_r_multitoken);
 }
 
-void testStrtokSuite()
+int testStrtokSuite()
 {
     MU_RUN_SUITE(test_strtok);
     MU_REPORT();
+    return minunit_fail;
 }
