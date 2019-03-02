@@ -4,10 +4,8 @@ Minimal libc implementation. When I need a function that is a reimplementation o
 * memchr, memcmp, memcpy, memmove, memset
 * strlen, strncpy, strtok
 * strto something functions
-* fgetc, fputc, getchar, putchar
 * isalnum, isalpha, isascii, isblank, iscntrl, isdigit, isgraph, islower, isprint, ispunct, isspace, isupper, isxdigit, tolower, toupper
 ## TODO
-* Big rename actions as they are still prefixed with sq as copied from my old embedded code library.
-* makefiles should now be specified a platform
+* fgetc, fputc, getchar, putchar 
+* need to rethink how to do file stream IO
 * fix warnings, do some cleanup in the whole stdio area
-

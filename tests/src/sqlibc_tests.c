@@ -4,8 +4,6 @@
 #include <test_strto.h>
 #include <test_strtok.h>
 
-
-
 int main(int argc, char *argv[]) {
     int failedTests = 0;
     // sort test modules on dependencies
