@@ -16,7 +16,11 @@
       <File Name="src/stdio/getchar.c"/>
       <File Name="src/stdio/putchar.c"/>
       <File Name="src/stdio/fgetc.c"/>
+      <File Name="src/stdio/empty_stdio.c"/>
+      <File Name="src/stdio/fputs.c"/>
+      <File Name="src/stdio/puts.c"/>
       <File Name="src/stdio/fputc.c"/>
+      <File Name="src/stdio/fgets.c"/>
       <File Name="src/stdio/stdFILE.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="string">
@@ -24,6 +28,7 @@
       <File Name="src/string/memcmp.c"/>
       <File Name="src/string/strtok.c"/>
       <File Name="src/string/memchr.c"/>
+      <File Name="src/string/strto.c"/>
       <File Name="src/string/memset.c"/>
       <File Name="src/string/strcmp.c"/>
       <File Name="src/string/memmove.c"/>

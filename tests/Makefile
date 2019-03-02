@@ -1,7 +1,7 @@
 # Project settings
 BIN_NAME = sqlibc_test
 SOURCES = sqlibc_tests.c test_strlen.c test_strto.c test_strtok.c test_putchar.c test_getchar.c
-INCLUDES = -I. -I../inc
+INCLUDES = -Iinc -I../inc
 RLIBDIR = -L"../bin/PC/release"
 RLIBS = -lsqlibc
 DLIBDIR = -L"../bin/PC/debug"
