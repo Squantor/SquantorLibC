@@ -24,6 +24,7 @@ MKDIR = mkdir
 RM = rm
 C_COMPILER = gcc
 CXX_COMPILER = g++
+LINKER ?= ld
 GDB = gdb
 SIZE = size
 AR = ar

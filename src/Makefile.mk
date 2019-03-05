@@ -4,9 +4,7 @@ C_SOURCES = src/string/strlen.c src/string/strtok.c src/string/strcmp.c src/stri
 src/string/memchr.c src/string/memcmp.c src/string/memcpy.c src/string/memmove.c src/string/memset.c \
 src/stdlib/strto.c \
 src/internal/ctypetable.c \
-src/ctype/isspace.c src/ctype/isxdigit.c \
-src/stdio/stdFILE.c \
-src/stdio/putchar.c src/stdio/fputc.c src/stdio/getchar.c src/stdio/fgetc.c
+src/ctype/isspace.c src/ctype/isxdigit.c
 INCLUDES = -Iinc
 COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra -Wno-main -fno-common -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections 
 COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra -Wno-main -fno-common -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions 
