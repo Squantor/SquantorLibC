@@ -63,8 +63,7 @@ MU_TEST(test_strnlen_empty)
 
 MU_TEST(test_strnlen_invalid) 
 {
-    size_t test = sqstrnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid));
-    mu_check(sizeof(strnlen_test_invalid) == test);
+    mu_check(sizeof(strnlen_test_invalid) == sqstrnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid)));
 }
 
 MU_TEST_SUITE(test_strlen) 

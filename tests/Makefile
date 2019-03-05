@@ -102,6 +102,7 @@ dirs:
 clean_debug:
 clean_release:
 clean:
+	$(MAKE) -C .. clean
 	$(RM) -r build
 	$(RM) -r bin
 

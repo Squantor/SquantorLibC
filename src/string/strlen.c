@@ -2,21 +2,20 @@
 
 size_t sqstrlen ( const char * str )
 {
-	size_t len = 0;
+    size_t len = 0;
     while(str[len])
     {
-    	++len;
+        ++len;
     }
-	return len;
+    return len;
 }
 
 size_t sqstrnlen ( const char * str, size_t num )
 {
-	size_t len = 0;
+    size_t len = 0;
     while(str[len] && (len < num))
     {
-    	++len;
+        ++len;
     }
-    // return 0 if this string is not zero terminated
-	return len < num ? len : num;
+    return len < num ? len : num;
 }
