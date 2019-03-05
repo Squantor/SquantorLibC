@@ -1,7 +1,7 @@
 # project settings
 BIN_NAME = sqlibc_test
 C_SOURCES += src/sqlibc_tests.c \
-src/test_strlen.c src/test_strto.c src/test_strtok.c
+src/test_strlen.c
 CXX_SOURCES = 
 S_SOURCES =
 INCLUDES = -Iinc -I../inc
