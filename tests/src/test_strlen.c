@@ -24,7 +24,7 @@ SOFTWARE.
 /*
 */
 #include <sqMinUnitC.h>
-#include <testStrlen.h>
+#include <test_strlen.h>
 #include <string.h>
 
 static const char strlenTestLength[] = "TestString";
