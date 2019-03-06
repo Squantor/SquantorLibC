@@ -25,8 +25,7 @@ SOFTWARE.
 */
 #include <rt0/syscall.h>
 #include <test_strlen.h>
-#include <test_strto.h>
-#include <test_strtok.h>
+#include <test_memset.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */
@@ -55,6 +54,7 @@ void println( const char* string )
 int main(int argc, char *argv[]) {
     // sort test modules on dependencies
     testStrlenSuite();
+    testMemsetSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");

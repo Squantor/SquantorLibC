@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc_test" Version="10.0.0" InternalType="Console">
+  <VirtualDirectory Name="src">
+    <File Name="src/sqlibc_tests.c"/>
+    <File Name="src/test_strtok.c"/>
+    <File Name="src/test_memset.c"/>
+    <File Name="src/test_memcmp.c"/>
+    <File Name="src/test_strlen.c"/>
+    <File Name="src/test_memmove.c"/>
+    <File Name="src/test_strto.c"/>
+    <File Name="src/test_memcpy.c"/>
+    <VirtualDirectory Name="rt0">
+      <File Name="src/rt0/00_start.c"/>
+      <File Name="src/rt0/_exit.c"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0005debug000000000000]]>
+    </Plugin>
+  </Plugins>
   <VirtualDirectory Name="inc">
+    <File Name="inc/test_memcmp.h"/>
+    <File Name="inc/test_memset.h"/>
+    <File Name="inc/test_memmove.h"/>
+    <File Name="inc/test_memcpy.h"/>
     <File Name="inc/test_strto.h"/>
     <File Name="inc/minunit.h"/>
     <File Name="inc/sqlibc_tests.h"/>
@@ -13,20 +36,6 @@
       <File Name="inc/rt0/rt0.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
-  <VirtualDirectory Name="src">
-    <File Name="src/sqlibc_tests.c"/>
-    <File Name="src/test_strtok.c"/>
-    <File Name="src/syscall.c"/>
-    <File Name="src/test_strlen.c"/>
-    <File Name="src/00_start.c"/>
-    <File Name="src/_exit.c"/>
-    <File Name="src/test_strto.c"/>
-  </VirtualDirectory>
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0005debug000000000000]]>
-    </Plugin>
-  </Plugins>
   <Description/>
   <Dependencies/>
   <Dependencies Name="Debug"/>
