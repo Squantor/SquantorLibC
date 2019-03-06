@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc" Version="10.0.0" InternalType="Console">
   <VirtualDirectory Name="inc">
-    <File Name="inc/sqstdiodefs.h"/>
-    <File Name="inc/sqstring.h"/>
-    <File Name="inc/sqctype.h"/>
-    <File Name="inc/sqstdio.h"/>
-    <File Name="inc/sqstdlib.h"/>
-    <File Name="inc/sqctypetable.h"/>
+    <File Name="inc/stdio.h"/>
+    <File Name="inc/stdlib.h"/>
+    <File Name="inc/ctype.h"/>
+    <File Name="inc/string.h"/>
+    <File Name="inc/stdiodefs.h"/>
+    <File Name="inc/ctypetable.h"/>
   </VirtualDirectory>
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
+    </Plugin>
+  </Plugins>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="string">
+      <File Name="src/string/strcpy.c"/>
+      <File Name="src/string/strlen.c"/>
+      <File Name="src/string/memcmp.c"/>
+      <File Name="src/string/strtok.c"/>
+      <File Name="src/string/memchr.c"/>
+      <File Name="src/string/strto.c"/>
+      <File Name="src/string/memset.c"/>
+      <File Name="src/string/strcmp.c"/>
+      <File Name="src/string/memmove.c"/>
+      <File Name="src/string/strncpy.c"/>
+      <File Name="src/string/strnlen.c"/>
+      <File Name="src/string/memcpy.c"/>
+    </VirtualDirectory>
     <VirtualDirectory Name="stdlib">
       <File Name="src/stdlib/strto.c"/>
     </VirtualDirectory>
@@ -22,18 +41,6 @@
       <File Name="src/stdio/fputc.c"/>
       <File Name="src/stdio/fgets.c"/>
       <File Name="src/stdio/stdFILE.c"/>
-    </VirtualDirectory>
-    <VirtualDirectory Name="string">
-      <File Name="src/string/strlen.c"/>
-      <File Name="src/string/memcmp.c"/>
-      <File Name="src/string/strtok.c"/>
-      <File Name="src/string/memchr.c"/>
-      <File Name="src/string/strto.c"/>
-      <File Name="src/string/memset.c"/>
-      <File Name="src/string/strcmp.c"/>
-      <File Name="src/string/memmove.c"/>
-      <File Name="src/string/strncpy.c"/>
-      <File Name="src/string/memcpy.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="internal">
       <File Name="src/internal/ctypetable.c"/>
@@ -56,11 +63,6 @@
       <File Name="src/ctype/isprint.c"/>
     </VirtualDirectory>
   </VirtualDirectory>
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
-    </Plugin>
-  </Plugins>
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">

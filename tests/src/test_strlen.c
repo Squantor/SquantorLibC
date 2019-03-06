@@ -25,7 +25,7 @@ SOFTWARE.
 */
 #include <sqMinUnitC.h>
 #include <test_strlen.h>
-#include <sqstring.h>
+#include <string.h>
 
 static const char strlen_test_length[] = "TestString";
 static const char strlen_test_empty[] = "";
@@ -43,27 +43,27 @@ void test_strlen_teardown(void)
 
 MU_TEST(test_strlen_normal) 
 {
-    mu_check(10 == sqstrlen(strlen_test_length));
+    mu_check(10 == strlen(strlen_test_length));
 }
 
 MU_TEST(test_strlen_empty) 
 {
-    mu_check(0 == sqstrlen(strlen_test_empty));
+    mu_check(0 == strlen(strlen_test_empty));
 }
 
 MU_TEST(test_strnlen_normal) 
 {
-    mu_check(10 == sqstrnlen(strlen_test_length, sizeof(strlen_test_length)));
+    mu_check(10 == strnlen(strlen_test_length, sizeof(strlen_test_length)));
 }
 
 MU_TEST(test_strnlen_empty) 
 {
-    mu_check(0 == sqstrnlen(strlen_test_empty, sizeof(strlen_test_empty)));
+    mu_check(0 == strnlen(strlen_test_empty, sizeof(strlen_test_empty)));
 }
 
 MU_TEST(test_strnlen_invalid) 
 {
-    mu_check(sizeof(strnlen_test_invalid) == sqstrnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid)));
+    mu_check(sizeof(strnlen_test_invalid) == strnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid)));
 }
 
 MU_TEST_SUITE(test_strlen) 

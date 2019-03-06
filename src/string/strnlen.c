@@ -23,16 +23,12 @@ SOFTWARE.
 */
 #include <string.h>
 
-void * memchr( const void * s, int c, size_t n )
+size_t strnlen ( const char * str, size_t num )
 {
-    const unsigned char * p = (const unsigned char *) s;
-    while ( n-- )
+    size_t len = 0;
+    while(str[len] && (len < num))
     {
-        if ( *p == (unsigned char) c )
-        {
-            return (void *) p;
-        }
-        ++p;
+        ++len;
     }
-    return NULL;
+    return len < num ? len : num;
 }

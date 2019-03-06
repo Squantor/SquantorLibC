@@ -21,18 +21,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <string.h>
+#ifndef STDIO_H
+#define STDIO_H
 
-void * memchr( const void * s, int c, size_t n )
-{
-    const unsigned char * p = (const unsigned char *) s;
-    while ( n-- )
-    {
-        if ( *p == (unsigned char) c )
-        {
-            return (void *) p;
-        }
-        ++p;
-    }
-    return NULL;
-}
+#include <stddef.h>
+#include <stdint.h>
+#include <stdiodefs.h>
+
+#define EOF (-1)
+
+typedef struct sqInternalFILE sqFILE;
+
+extern const sqFILE * sqstdin;
+extern const sqFILE * sqstdout;
+extern const sqFILE * sqstderr;
+
+int putchar(int c);
+int getchar(void);
+
+int fputc(int c, const sqFILE * stream);
+int fgetc (const sqFILE * stream);
+
+
+#endif

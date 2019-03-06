@@ -21,18 +21,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <string.h>
+#ifndef CTYPE_H
+#define CTYPE_H
 
-void * memchr( const void * s, int c, size_t n )
-{
-    const unsigned char * p = (const unsigned char *) s;
-    while ( n-- )
-    {
-        if ( *p == (unsigned char) c )
-        {
-            return (void *) p;
-        }
-        ++p;
-    }
-    return NULL;
-}
+int isalnum(int c);
+int isspace(int c);
+int isxdigit(int c);
+
+#endif

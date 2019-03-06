@@ -27,6 +27,8 @@ SOFTWARE.
 #include <test_memset.h>
 #include <string.h>
 
+char buffer[12];
+
 void testMemsetSetup(void) 
 {
     
@@ -39,6 +41,10 @@ void testMemsetTeardown(void)
 
 MU_TEST(testMemsetNormal) 
 {
+    mu_check(buffer == memset(buffer, 0xFE,sizeof(buffer)));
+    mu_check(buffer[0] == 0xFE);
+    mu_check(buffer[2] == 0xFE);
+    mu_check(buffer[11] == 0xFE);
 }
 
 MU_TEST_SUITE(testMemset) 

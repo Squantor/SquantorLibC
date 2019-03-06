@@ -21,18 +21,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <string.h>
+#ifndef STDLIB_H
+#define STDLIB_H
 
-void * memchr( const void * s, int c, size_t n )
-{
-    const unsigned char * p = (const unsigned char *) s;
-    while ( n-- )
-    {
-        if ( *p == (unsigned char) c )
-        {
-            return (void *) p;
-        }
-        ++p;
-    }
-    return NULL;
-}
+#include <stddef.h>
+
+unsigned long int strtoul(const char * s, char ** endptr, int base);
+long int strtol(const char * s, char ** endptr, int base);
+long int strstol(const char * s);
+
+#endif

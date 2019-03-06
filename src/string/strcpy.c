@@ -23,16 +23,10 @@ SOFTWARE.
 */
 #include <string.h>
 
-void * memchr( const void * s, int c, size_t n )
+char * strcpy(char * restrict s1, const char * restrict s2)
 {
-    const unsigned char * p = (const unsigned char *) s;
-    while ( n-- )
-    {
-        if ( *p == (unsigned char) c )
-        {
-            return (void *) p;
-        }
-        ++p;
-    }
-    return NULL;
+    char * r = s1;
+    while((*s1++ = *s2++))
+        ;
+    return r;
 }

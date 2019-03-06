@@ -21,18 +21,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <string.h>
+#ifndef STDIODEFS_H
+#define STDIODEFS_H
 
-void * memchr( const void * s, int c, size_t n )
+#include <stdint.h>
+
+struct sqInternalFILE
 {
-    const unsigned char * p = (const unsigned char *) s;
-    while ( n-- )
-    {
-        if ( *p == (unsigned char) c )
-        {
-            return (void *) p;
-        }
-        ++p;
-    }
-    return NULL;
-}
+    // function pointer to write to stream
+    int (*streamWrite)(uint8_t);
+    // function pointer to read from stream
+    int (*streamRead)(uint8_t *);
+};
+
+#endif
