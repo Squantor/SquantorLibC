@@ -24,60 +24,60 @@ SOFTWARE.
 /*
 */
 #include <sqMinUnitC.h>
-#include <test_strlen.h>
+#include <testStrlen.h>
 #include <string.h>
 
-static const char strlen_test_length[] = "TestString";
-static const char strlen_test_empty[] = "";
-static const char strnlen_test_invalid[5] = {'a', 'b', 'c', 'd', 'e' };
+static const char strlenTestLength[] = "TestString";
+static const char strlenTestEmpty[] = "";
+static const char strnlenTestInvalid[5] = {'a', 'b', 'c', 'd', 'e' };
 
-void test_strlen_setup(void) 
+void testStrlenSetup(void) 
 {
     
 }
 
-void test_strlen_teardown(void) 
+void testStrlenTeardown(void) 
 {
 
 }
 
-MU_TEST(test_strlen_normal) 
+MU_TEST(testStrlenNormal) 
 {
-    mu_check(10 == strlen(strlen_test_length));
+    mu_check(10 == strlen(strlenTestLength));
 }
 
-MU_TEST(test_strlen_empty) 
+MU_TEST(testStrlenEmpty) 
 {
-    mu_check(0 == strlen(strlen_test_empty));
+    mu_check(0 == strlen(strlenTestEmpty));
 }
 
-MU_TEST(test_strnlen_normal) 
+MU_TEST(testStrnlenNormal) 
 {
-    mu_check(10 == strnlen(strlen_test_length, sizeof(strlen_test_length)));
+    mu_check(10 == strnlen(strlenTestLength, sizeof(strlenTestLength)));
 }
 
-MU_TEST(test_strnlen_empty) 
+MU_TEST(testStrnlenEmpty) 
 {
-    mu_check(0 == strnlen(strlen_test_empty, sizeof(strlen_test_empty)));
+    mu_check(0 == strnlen(strlenTestEmpty, sizeof(strlenTestEmpty)));
 }
 
-MU_TEST(test_strnlen_invalid) 
+MU_TEST(testStrnlenInvalid) 
 {
-    mu_check(sizeof(strnlen_test_invalid) == strnlen(strnlen_test_invalid, sizeof(strnlen_test_invalid)));
+    mu_check(sizeof(strnlenTestInvalid) == strnlen(strnlenTestInvalid, sizeof(strnlenTestInvalid)));
 }
 
-MU_TEST_SUITE(test_strlen) 
+MU_TEST_SUITE(testStrlen) 
 {
-    MU_SUITE_CONFIGURE(&test_strlen_setup, &test_strlen_teardown);
+    MU_SUITE_CONFIGURE(&testStrlenSetup, &testStrlenTeardown);
     
-    MU_RUN_TEST(test_strlen_normal);
-    MU_RUN_TEST(test_strlen_empty);
-    MU_RUN_TEST(test_strnlen_normal);
-    MU_RUN_TEST(test_strnlen_empty);
-    MU_RUN_TEST(test_strnlen_invalid);
+    MU_RUN_TEST(testStrlenNormal);
+    MU_RUN_TEST(testStrlenEmpty);
+    MU_RUN_TEST(testStrnlenNormal);
+    MU_RUN_TEST(testStrnlenEmpty);
+    MU_RUN_TEST(testStrnlenInvalid);
 }
 
 void testStrlenSuite()
 {
-    MU_RUN_SUITE(test_strlen);
+    MU_RUN_SUITE(testStrlen);
 }
