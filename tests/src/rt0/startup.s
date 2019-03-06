@@ -40,7 +40,7 @@ _start:
         movq    %rax,%rdi
         call    _exit
 
-		/* force an illegal opcode exception if _exit returns */
+        /* force an illegal opcode exception if _exit returns */
         ud2
 
 .globl  syscall6
@@ -48,20 +48,20 @@ _start:
 
 syscall6:
         /* convert arguments as passed by ELF ABI to Linux syscall ABI */
-		movq	%rdi, %rax		/* number */
-		movq	%rsi, %rdi		/* arg0 */
-		movq	%rdx, %rsi		/* arg1 */
-		movq	%rcx, %rdx		/* arg2 */
-		/* arg4 is already in %r8, arg5 is already in %r9 */
-		syscall
-		andq    %rax,%rax
-		js		1f
+        movq    %rdi, %rax  /* number */
+        movq    %rsi, %rdi  /* arg0 */
+        movq    %rdx, %rsi  /* arg1 */
+        movq    %rcx, %rdx  /* arg2 */
+        /* arg4 is already in %r8, arg5 is already in %r9 */
+        syscall
+        andq    %rax,%rax
+        js      1f
 
         /* No error; result is in %rax */
-		retq
+        retq
 
-1:		/* Move error number to errno and return -1 */
-        negq	%rax
+1:      /* Move error number to errno and return -1 */
+        negq    %rax
         movq    %rax, errno
         movq    $-1, %rax
         retq
