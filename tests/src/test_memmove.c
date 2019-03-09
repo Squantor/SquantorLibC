@@ -27,8 +27,6 @@ SOFTWARE.
 #include <test_memmove.h>
 #include <string.h>
 
-unsigned char buffer[12];
-
 void testMemmoveSetup(void) 
 {
     
@@ -39,16 +37,27 @@ void testMemmoveTeardown(void)
 
 }
 
-MU_TEST(testMemmoveNormal) 
+MU_TEST(testMemmoveOverlapLower)
 {
+    static char s[] = "xxxxabcde";
+    mu_check(memmove(s, s + 4, 5) == s);
+    mu_check(s[0] == 'a');
+    mu_check(s[4] == 'e');
+    mu_check(s[5] == 'b');
+}
 
+MU_TEST(testMemmoveOverlapHigher)
+{
+    static char s[] = "abcdexxxx";
+    mu_check(memmove(s + 4, s, 5) == s + 4);
+    mu_check(s[4] == 'a');
 }
 
 MU_TEST_SUITE(testMemmove) 
 {
     MU_SUITE_CONFIGURE(&testMemmoveSetup, &testMemmoveTeardown);
-    
-    MU_RUN_TEST(testMemmoveNormal);
+    MU_RUN_TEST(testMemmoveOverlapLower);
+    MU_RUN_TEST(testMemmoveOverlapHigher);
 }
 
 void testMemmoveSuite()

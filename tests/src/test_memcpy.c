@@ -27,8 +27,6 @@ SOFTWARE.
 #include <test_memcpy.h>
 #include <string.h>
 
-unsigned char buffer[12];
-
 void testMemcpySetup(void) 
 {
     
@@ -41,14 +39,27 @@ void testMemcpyTeardown(void)
 
 MU_TEST(testMemcpyNormal) 
 {
+    char s[] = "xxxxxxxxxxx";
+    const char abcde[] = "abcde";
+    mu_check(memcpy(s, abcde, 6) == s);
+    mu_check(s[4] == 'e');
+    mu_check(s[5] == '\0');
+}
 
+MU_TEST(testMemcpyPartial) 
+{
+    char s[] = "xxxxxxxxxxx";
+    const char abcde[] = "abcde";
+    mu_check(memcpy(s + 5, abcde, 5) == s + 5);
+    mu_check(s[9] == 'e');
+    mu_check(s[10] == 'x');
 }
 
 MU_TEST_SUITE(testMemcpy) 
 {
     MU_SUITE_CONFIGURE(&testMemcpySetup, &testMemcpyTeardown);
-    
     MU_RUN_TEST(testMemcpyNormal);
+    MU_RUN_TEST(testMemcpyPartial);
 }
 
 void testMemcpySuite()

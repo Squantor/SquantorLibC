@@ -26,8 +26,8 @@ SOFTWARE.
 #include <sqMinUnitC.h>
 #include <test_memset.h>
 #include <string.h>
-
-unsigned char buffer[12];
+// disable some warnings in gcc
+#pragma GCC diagnostic ignored "-Wmemset-transposed-args"
 
 void testMemsetSetup(void) 
 {
@@ -41,21 +41,32 @@ void testMemsetTeardown(void)
 
 MU_TEST(testMemsetNormal) 
 {
-    mu_check(buffer == memset(buffer, 'c',sizeof(buffer)));
-    mu_check(buffer[0] == 'c');
-    mu_check(buffer[2] == 'c');
-    mu_check(buffer[11] == 'c');
-    mu_check(buffer == memset(buffer, 255,sizeof(buffer)));
-    mu_check(buffer[0] == 255);
-    mu_check(buffer[2] == 255);
-    mu_check(buffer[11] == 255);
+    char s[] = "xxxxxxxxx";
+    mu_check(memset(s, 'o', 10) == s);
+    mu_check(s[9] == 'o' );
+}
+
+MU_TEST(testMemsetNoOverwrite)
+{
+    char s[] = "xxxxxxxxx";
+    mu_check(memset(s, '_', 0) == s);
+    mu_check(s[0] == 'x');
+}
+
+MU_TEST(testMemsetPartialOverwrite)
+{
+    char s[] = "xxxxxxxxx";
+    mu_check(memset(s, '_', 1) == s);
+    mu_check(s[0] == '_');
+    mu_check(s[1] == 'x');
 }
 
 MU_TEST_SUITE(testMemset) 
 {
     MU_SUITE_CONFIGURE(&testMemsetSetup, &testMemsetTeardown);
-    
     MU_RUN_TEST(testMemsetNormal);
+    MU_RUN_TEST(testMemsetNoOverwrite);
+    MU_RUN_TEST(testMemsetPartialOverwrite);
 }
 
 void testMemsetSuite()

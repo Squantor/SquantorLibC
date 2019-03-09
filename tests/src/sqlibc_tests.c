@@ -29,6 +29,7 @@ SOFTWARE.
 #include <test_memcmp.h>
 #include <test_memmove.h>
 #include <test_memcpy.h>
+#include <test_memchr.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */

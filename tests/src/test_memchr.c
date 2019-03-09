@@ -27,8 +27,6 @@ SOFTWARE.
 #include <test_memchr.h>
 #include <string.h>
 
-unsigned char abcde[] = "abcde";
-
 void testMemchrSetup(void) 
 {
     
@@ -41,6 +39,7 @@ void testMemchrTeardown(void)
 
 MU_TEST(testMemchrNormal) 
 {
+    const char abcde[] = "abcde";
     mu_check(memchr(abcde, 'c', 5) == &abcde[2]);
     mu_check(memchr(abcde, 'a', 1) == &abcde[0]);
     mu_check(memchr(abcde, '\0', 6) == &abcde[5]);
@@ -48,6 +47,7 @@ MU_TEST(testMemchrNormal)
 
 MU_TEST(testMemchrEdges) 
 {
+    const char abcde[] = "abcde";
     mu_check(memchr(abcde, 'a', 0) == NULL);
     mu_check(memchr(abcde, '\0', 5) == NULL);
 }
@@ -55,7 +55,6 @@ MU_TEST(testMemchrEdges)
 MU_TEST_SUITE(testMemchr) 
 {
     MU_SUITE_CONFIGURE(&testMemchrSetup, &testMemchrTeardown);
-    
     MU_RUN_TEST(testMemchrNormal);
     MU_RUN_TEST(testMemchrEdges);
 }

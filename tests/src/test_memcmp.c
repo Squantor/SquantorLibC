@@ -27,8 +27,6 @@ SOFTWARE.
 #include <test_memcmp.h>
 #include <string.h>
 
-unsigned char buffer[12];
-
 void testMemcmpSetup(void) 
 {
     
@@ -39,16 +37,29 @@ void testMemcmpTeardown(void)
 
 }
 
-MU_TEST(testMemcmpNormal) 
+MU_TEST(testMemcmpEquals)
 {
+    const char xxxxx[] = "xxxxx";
+    const char abcde[] = "abcde";
+    const char abcdx[] = "abcdx";
+    mu_check(memcmp(abcde, abcdx, 4) == 0);
+    mu_check(memcmp(abcde, xxxxx, 0) == 0);
+}
 
+MU_TEST(testMemcmpNotEquals) 
+{
+    const char xxxxx[] = "xxxxx";
+    const char abcde[] = "abcde";
+    const char abcdx[] = "abcdx";
+    mu_check(memcmp(abcde, abcdx, 5) < 0);
+    mu_check(memcmp(xxxxx, abcde, 1) > 0);    
 }
 
 MU_TEST_SUITE(testMemcmp) 
 {
     MU_SUITE_CONFIGURE(&testMemcmpSetup, &testMemcmpTeardown);
-    
-    MU_RUN_TEST(testMemcmpNormal);
+    MU_RUN_TEST(testMemcmpEquals);
+    MU_RUN_TEST(testMemcmpNotEquals);
 }
 
 void testMemcmpSuite()
