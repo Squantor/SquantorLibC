@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
     testMemcmpSuite();
     testMemcpySuite();
     testMemmoveSuite();
+    testMemchrSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");
