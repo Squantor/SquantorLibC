@@ -24,7 +24,7 @@ SOFTWARE.
 /*
 */
 #include <sqMinUnitC.h>
-#include <test_memset.h>
+#include <test_memcpy.h>
 #include <string.h>
 
 unsigned char buffer[12];

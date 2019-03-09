@@ -23,35 +23,9 @@ SOFTWARE.
 */
 /*
 */
-#include <sqMinUnitC.h>
-#include <test_memcmp.h>
-#include <string.h>
+#ifndef TEST_MEMCHR_H
+#define TEST_MEMCHR_H
 
-unsigned char buffer[12];
+void testMemchrSuite();
 
-void testMemcmpSetup(void) 
-{
-    
-}
-
-void testMemcmpTeardown(void) 
-{
-
-}
-
-MU_TEST(testMemcmpNormal) 
-{
-
-}
-
-MU_TEST_SUITE(testMemcmp) 
-{
-    MU_SUITE_CONFIGURE(&testMemcmpSetup, &testMemcmpTeardown);
-    
-    MU_RUN_TEST(testMemcmpNormal);
-}
-
-void testMemcmpSuite()
-{
-    MU_RUN_SUITE(testMemcmp);
-}
+#endif

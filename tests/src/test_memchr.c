@@ -24,34 +24,34 @@ SOFTWARE.
 /*
 */
 #include <sqMinUnitC.h>
-#include <test_memcmp.h>
+#include <test_memchr.h>
 #include <string.h>
 
 unsigned char buffer[12];
 
-void testMemcmpSetup(void) 
+void testMemchrSetup(void) 
 {
     
 }
 
-void testMemcmpTeardown(void) 
+void testMemchrTeardown(void) 
 {
 
 }
 
-MU_TEST(testMemcmpNormal) 
+MU_TEST(testMemchrNormal) 
 {
 
 }
 
-MU_TEST_SUITE(testMemcmp) 
+MU_TEST_SUITE(testMemchr) 
 {
-    MU_SUITE_CONFIGURE(&testMemcmpSetup, &testMemcmpTeardown);
+    MU_SUITE_CONFIGURE(&testMemchrSetup, &testMemchrTeardown);
     
-    MU_RUN_TEST(testMemcmpNormal);
+    MU_RUN_TEST(testMemchrNormal);
 }
 
-void testMemcmpSuite()
+void testMemchrSuite()
 {
-    MU_RUN_SUITE(testMemcmp);
+    MU_RUN_SUITE(testMemchr);
 }

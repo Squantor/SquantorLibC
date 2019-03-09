@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc_test" Version="10.0.0" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0005debug000000000000]]>
+    </Plugin>
+  </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/test_memchr.c"/>
     <File Name="src/sqlibc_tests.c"/>
     <File Name="src/test_strtok.c"/>
     <File Name="src/test_memset.c"/>
@@ -14,12 +20,8 @@
       <File Name="src/rt0/_exit.c"/>
     </VirtualDirectory>
   </VirtualDirectory>
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0005debug000000000000]]>
-    </Plugin>
-  </Plugins>
   <VirtualDirectory Name="inc">
+    <File Name="inc/test_memchr.h"/>
     <File Name="inc/test_memcmp.h"/>
     <File Name="inc/test_memset.h"/>
     <File Name="inc/test_memmove.h"/>
