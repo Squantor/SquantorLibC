@@ -27,26 +27,12 @@ int puts(const char * s)
 {
     while(*s != '\0')
     {
-        if(sqfputc(*s, sqstdout) == EOF)
+        if(fputc(*s, stdout) == EOF)
         {
             return EOF;
         }
         ++s;
     }
-    sqfputc('\n', sqstdout);
-    return 0;
-}
-
-/* TODO move to putsn.c */
-int putsn( const char * s )
-{
-    while( *s != '\0' )
-    {
-        if( sqfputc( *s, sqstdout ) == EOF)
-        {
-            return EOF;
-        }
-        ++s;
-    }
+    fputc('\n', stdout);
     return 0;
 }

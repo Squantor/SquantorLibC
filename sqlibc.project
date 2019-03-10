@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc" Version="10.0.0" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
+    </Plugin>
+  </Plugins>
   <VirtualDirectory Name="inc">
     <File Name="inc/stdio.h"/>
     <File Name="inc/stdlib.h"/>
@@ -8,11 +13,6 @@
     <File Name="inc/stdiodefs.h"/>
     <File Name="inc/ctypetable.h"/>
   </VirtualDirectory>
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
-    </Plugin>
-  </Plugins>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="string">
       <File Name="src/string/strcpy.c"/>
@@ -29,9 +29,12 @@
       <File Name="src/string/memcpy.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="stdlib">
+      <File Name="src/stdlib/strtol.c"/>
+      <File Name="src/stdlib/strstol.c"/>
       <File Name="src/stdlib/strto.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="stdio">
+      <File Name="src/stdio/putsn.c"/>
       <File Name="src/stdio/getchar.c"/>
       <File Name="src/stdio/putchar.c"/>
       <File Name="src/stdio/fgetc.c"/>

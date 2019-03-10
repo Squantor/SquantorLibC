@@ -41,7 +41,9 @@ int putchar(int c);
 int getchar(void);
 
 int fputc(int c, const FILE * stream);
-int fgetc (const FILE * stream);
+int fgetc(const FILE * stream);
+int puts(const char * s);
+int putsn(const char * s);
 
 
 #endif
