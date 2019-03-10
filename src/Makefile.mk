@@ -6,7 +6,7 @@ src/string/memchr.c src/string/memcmp.c src/string/memcpy.c src/string/memmove.c
 src/stdlib/strto.c \
 src/internal/ctypetable.c \
 src/ctype/isspace.c src/ctype/isxdigit.c
-INCLUDES = -Iinc
+INCLUDES = -Iinc -Iinc_internal
 COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra -Wno-main -fno-common -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections 
 COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra -Wno-main -fno-common -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions 
 COMPILE_ASM_FLAGS += -c -x assembler-with-cpp

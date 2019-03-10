@@ -30,11 +30,11 @@ extern "C" {
 
 #include <stddef.h>
 #include <stdint.h>
-#include <stdiodefs.h>
+#include "squantorlibc/stdiodefs.h"
 
 #define EOF (-1)
 
-typedef struct internalFILE FILE;
+typedef struct squantorlibc_FILE FILE;
 
 /* to be defined by your application */
 extern const FILE * stdin;

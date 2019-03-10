@@ -26,7 +26,7 @@ SOFTWARE.
 
 #include <stdint.h>
 
-struct InternalFILE
+struct squantorlibc_FILE
 {
     int (*streamWrite)(uint8_t);
     int (*streamRead)(uint8_t *);
