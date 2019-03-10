@@ -21,15 +21,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+
 #include <stdio.h>
 
-char * fgets ( char * restrict s, int size, const rStream * stream )
+char * fgets (char * restrict s, int size, const rStream * stream)
 {
-    if ( size == 0 )
+    if (size == 0)
     {
         return NULL;
     }
-    if ( size == 1 )
+    if (size == 1)
     {
         *s = '\0';
         return s;
@@ -37,7 +38,7 @@ char * fgets ( char * restrict s, int size, const rStream * stream )
     size -= 1;
     while(size > 0)
     {
-        int c = sqfgetc( stream );
+        int c = sqfgetc(stream);
         if(c == EOF)
             return NULL;
         *s = c;

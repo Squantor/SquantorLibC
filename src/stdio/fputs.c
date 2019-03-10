@@ -23,11 +23,11 @@ SOFTWARE.
 */
 #include <stdio.h>
 
-int fputs( const char * s, const wStream * stream )
+int fputs(const char * s, const wStream * stream)
 {
-    while( *s != '\0' )
+    while(*s != '\0')
     {
-        if( sqfputc( *s, stream ) == EOF )
+        if(sqfputc(*s, stream) == EOF)
             return EOF;
         ++s;
     }

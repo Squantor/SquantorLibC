@@ -31,7 +31,7 @@ long int strstol(const char * s)
     return strtol(s, NULL, 0);
 }
 
-long int strtol( const char * s, char ** endptr, int base )
+long int strtol(const char * s, char ** endptr, int base)
 {
     long int value = 0;
     char sign = '+';

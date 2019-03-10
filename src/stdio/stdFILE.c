@@ -26,24 +26,24 @@ SOFTWARE.
 
 // std in/out/err defined as weak so they can be overridden
 // OVERRIDE THESE STRUCTS IN YOUR PROJECT!
-const sqFILE __attribute__((weak)) sqstdindef = {
+const FILE __attribute__((weak)) stdindef = {
     NULL,
     NULL,
 };
 
-const sqFILE __attribute__((weak)) sqstdoutdef = {
+const FILE __attribute__((weak)) stdoutdef = {
     NULL,
     NULL,
 };
 
-const sqFILE __attribute__((weak)) sqsterrdef = {
+const FILE __attribute__((weak)) stderrdef = {
     NULL,
     NULL,
 };
 
-const sqFILE * sqstdin = &sqstdindef;
-const sqFILE * sqstdout = &sqstdoutdef;
-const sqFILE * sqstderr = &sqsterrdef;
+const FILE * stdin = &stdindef;
+const FILE * stdout = &stdoutdef;
+const FILE * stderr = &sterrdef;
 
 
 

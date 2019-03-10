@@ -26,11 +26,9 @@ SOFTWARE.
 
 #include <stdint.h>
 
-struct sqInternalFILE
+struct InternalFILE
 {
-    // function pointer to write to stream
     int (*streamWrite)(uint8_t);
-    // function pointer to read from stream
     int (*streamRead)(uint8_t *);
 };
 

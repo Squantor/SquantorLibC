@@ -23,17 +23,17 @@ SOFTWARE.
 */
 #include <stdio.h>
 
-int puts( const char * s )
+int puts(const char * s)
 {
-    while( *s != '\0' )
+    while(*s != '\0')
     {
-        if( sqfputc( *s, sqstdout ) == EOF)
+        if(sqfputc(*s, sqstdout) == EOF)
         {
             return EOF;
         }
         ++s;
     }
-    sqfputc( '\n', sqstdout );
+    sqfputc('\n', sqstdout);
     return 0;
 }
 

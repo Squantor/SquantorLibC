@@ -30,17 +30,18 @@ SOFTWARE.
 
 #define EOF (-1)
 
-typedef struct sqInternalFILE sqFILE;
+typedef struct internalFILE FILE;
 
-extern const sqFILE * sqstdin;
-extern const sqFILE * sqstdout;
-extern const sqFILE * sqstderr;
+/* to be defined by your application */
+extern const FILE * stdin;
+extern const FILE * stdout;
+extern const FILE * stderr;
 
 int putchar(int c);
 int getchar(void);
 
-int fputc(int c, const sqFILE * stream);
-int fgetc (const sqFILE * stream);
+int fputc(int c, const FILE * stream);
+int fgetc (const FILE * stream);
 
 
 #endif

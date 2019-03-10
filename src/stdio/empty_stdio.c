@@ -24,18 +24,17 @@ SOFTWARE.
 #include <stdlib.h>
 #include <stdio.h>
 
-// std in/out/err defined as weak so they can be overridden
-// OVERRIDE THESE STRUCTS IN YOUR PROJECT!
-const rStream __attribute__((weak)) sqstdindef = {
+/* 
+std in/out/err defined as weak so they can be overridden
+override these in your project before using!
+*/
+const rStream __attribute__((weak)) stdindef = {
     NULL,
 };
 
-const wStream __attribute__((weak)) sqstdoutdef = {
+const wStream __attribute__((weak)) stdoutdef = {
     NULL,
 };
 
-const rStream * sqstdin = &sqstdindef;
-const wStream * sqstdout = &sqstdoutdef;
-
-
-
+const rStream * sqstdin = &stdindef;
+const wStream * sqstdout = &stdoutdef;
