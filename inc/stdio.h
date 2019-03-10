@@ -24,6 +24,10 @@ SOFTWARE.
 #ifndef STDIO_H
 #define STDIO_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stddef.h>
 #include <stdint.h>
 #include <stdiodefs.h>
@@ -45,5 +49,8 @@ int fgetc(const FILE * stream);
 int puts(const char * s);
 int putsn(const char * s);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif

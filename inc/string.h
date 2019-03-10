@@ -24,6 +24,10 @@ SOFTWARE.
 #ifndef STRING_H
 #define STRING_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stddef.h>
 
 void * memchr(const void * s, int c, size_t n);
@@ -37,5 +41,9 @@ size_t strnlen(const char * str, size_t num);
 int strcmp(const char * s1, const char * s2);
 char * strncpy(char * restrict s1, const char * restrict s2, size_t n);
 char * strtok_r(char * restrict s1, const char * restrict s2, char ** pos);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

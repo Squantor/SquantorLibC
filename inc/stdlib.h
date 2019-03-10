@@ -24,10 +24,18 @@ SOFTWARE.
 #ifndef STDLIB_H
 #define STDLIB_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <stddef.h>
 
 unsigned long int strtoul(const char * s, char ** endptr, int base);
 long int strtol(const char * s, char ** endptr, int base);
 long int strstol(const char * s);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
