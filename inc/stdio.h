@@ -34,7 +34,7 @@ extern "C" {
 
 #define EOF (-1)
 
-typedef squantorlibc_FILE FILE;
+typedef sqlibcFILE_t FILE;
 
 extern FILE * stdin;
 extern FILE * stdout;

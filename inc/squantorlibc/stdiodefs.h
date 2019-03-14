@@ -27,14 +27,22 @@ SOFTWARE.
 #include <stdbool.h>
 #include <stddef.h>
 
-typedef struct 
+typedef struct sqlibcFILEops sqlibcFILEops_t;
+typedef struct sqlibcFILE sqlibcFILE_t;
+
+struct sqlibcFILE
 {
     int errno;
-    // file operations
-    bool write(sq_FILE_t this, void *buf, size_t len, size_t *written);
-    bool read(sq_FILE_t this, const void *buf, size_t len, size_t *written);
+    const sqlibcFILEops_t *operations;
     // seek?
     char *filename;
-} sq_FILE_t;
+};
+
+// seperate file operations, so we can use FILE in the operations
+struct sqlibcFILEops
+{
+    bool (*write)(sqlibcFILE_t this, void *buf, size_t len, size_t *written);
+    bool (*read)(sqlibcFILE_t this, const void *buf, size_t len, size_t *written);    
+};
 
 #endif
