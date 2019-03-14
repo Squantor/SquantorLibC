@@ -2,7 +2,10 @@
 BIN_NAME = sqlibc_test
 C_SOURCES += src/sqlibc_tests.c \
 src/test_strlen.c \
-src/test_memset.c src/test_memcmp.c src/test_memcpy.c src/test_memmove.c src/test_memchr.c
+src/test_memset.c src/test_memcmp.c src/test_memcpy.c src/test_memmove.c src/test_memchr.c \
+src/test_dummy.c \
+src/test_feof.c src/test_ferror.c \
+src/test_getc.c src/test_putc.c
 CXX_SOURCES +=
 S_SOURCES +=
 INCLUDES = -Iinc -I../inc
