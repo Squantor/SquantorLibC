@@ -36,10 +36,6 @@ extern "C" {
 
 typedef sqlibcFILE_t FILE;
 
-extern FILE * stdin;
-extern FILE * stdout;
-extern FILE * stderr;
-
 int feof(FILE * stream);
 int ferror(FILE * stream);
 int fputc(int c, FILE* stream);

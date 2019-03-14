@@ -34,7 +34,7 @@ struct sqlibcFILE
 {
     int errno;
     const sqlibcFILEops_t *operations;
-    char *filename;
+    const char *filename;
 };
 
 // seperate file operations, so we can use FILE in the operations

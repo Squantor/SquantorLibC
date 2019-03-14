@@ -28,9 +28,9 @@ SOFTWARE.
 #include <stdio.h>
 
 bool testPutcWrite(sqlibcFILE_t this, void *buf, size_t len, size_t *written);
-char testPutcFilename[] = "testPutc";
+char const testPutcFilename[] = "testPutc";
 
-sqlibcFILEops_t testPutcOperations = {&testPutcWrite, NULL};
+sqlibcFILEops_t const testPutcOperations = {&testPutcWrite, NULL};
 FILE testPutcFile = {0, &testPutcOperations, testPutcFilename};
 
 bool testPutcWrite(sqlibcFILE_t this, void *buf, size_t len, size_t *written)
