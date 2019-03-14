@@ -34,15 +34,15 @@ struct sqlibcFILE
 {
     int errno;
     const sqlibcFILEops_t *operations;
-    // seek?
     char *filename;
 };
 
 // seperate file operations, so we can use FILE in the operations
 struct sqlibcFILEops
 {
-    bool (*write)(sqlibcFILE_t this, void *buf, size_t len, size_t *written);
-    bool (*read)(sqlibcFILE_t this, const void *buf, size_t len, size_t *written);    
+    bool (*write)(sqlibcFILE_t *this, void *buf, size_t len, size_t *written);
+    bool (*read)(sqlibcFILE_t *this, const void *buf, size_t len, size_t *read);    
+    // seek?
 };
 
 #endif

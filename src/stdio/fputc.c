@@ -23,15 +23,14 @@ SOFTWARE.
 */
 #include <stdio.h>
 
-int fputc(int c, const wStream * stream)
+int fputc(int c, FILE* stream)
 {
-    if(stream->writeStream != NULL)
+    char buf = (char)c;
+    size_t written;
+    bool success = stream->operations->write(stream, &buf, sizeof(char), &written);
+    if(written != sizeof(char) || !success)
     {
-        if(stream->writeStream((uint8_t) c) == noError)
-            return c;
-        else
-            return EOF;
-    }
-    else
         return EOF;
+    }
+    return c;
 }

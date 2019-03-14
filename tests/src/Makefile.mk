@@ -13,7 +13,7 @@ COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra
 COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra
 COMPILE_ASM_FLAGS += -c -x assembler-with-cpp
 LINK_FLAGS +=
-RLIBDIR = -L"../bin/PC/release"
+RLIBDIR = -L"../bin/bare_PC/release"
 RLIBS = -lsqlibc
-DLIBDIR = -L"../bin/PC/debug"
+DLIBDIR = -L"../bin/bare_PC/debug"
 DLIBS = -lsqlibc

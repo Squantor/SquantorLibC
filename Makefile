@@ -4,7 +4,7 @@
 # PLATFORM=PC for pc's with gcc installed
 
 # if not defined
-PLATFORM ?= PC
+PLATFORM ?= bare_PC
 # load platform settings
 include platforms/$(PLATFORM).mk
 # load project settings

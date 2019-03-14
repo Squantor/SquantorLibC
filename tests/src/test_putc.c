@@ -31,11 +31,11 @@ bool testPutcWrite(sqlibcFILE_t this, void *buf, size_t len, size_t *written);
 char testPutcFilename[] = "testPutc";
 
 sqlibcFILEops_t testPutcOperations = {&testPutcWrite, NULL};
-sqlibcFILE_t testPutcFile = {0, &testPutcOperations, testPutcFilename};
+FILE testPutcFile = {0, &testPutcOperations, testPutcFilename};
 
 bool testPutcWrite(sqlibcFILE_t this, void *buf, size_t len, size_t *written)
 {
-    
+    return true;
 }
 
 void testPutcSetup(void) 
@@ -50,7 +50,7 @@ void testPutcTeardown(void)
 
 MU_TEST(testPutcNormal) 
 {
-
+    putc(10, &testPutcFile);
 }
 
 MU_TEST_SUITE(testPutc) 

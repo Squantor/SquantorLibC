@@ -32,7 +32,7 @@ extern "C" {
 #include <stdint.h>
 #include "squantorlibc/stdiodefs.h"
 
-#define EOF (-1)
+#define EOF -1
 
 typedef sqlibcFILE_t FILE;
 
@@ -42,6 +42,8 @@ extern FILE * stderr;
 
 int feof(FILE * stream);
 int ferror(FILE * stream);
+int fputc(int c, FILE* stream);
+
 int getc(FILE * stream);
 int putc(int c, FILE * stream);
 

@@ -30,6 +30,7 @@ SOFTWARE.
 #include <test_memmove.h>
 #include <test_memcpy.h>
 #include <test_memchr.h>
+#include <test_putc.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */
@@ -63,6 +64,7 @@ int main(int argc, char *argv[]) {
     testMemcpySuite();
     testMemmoveSuite();
     testMemchrSuite();
+    testPutcSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");
