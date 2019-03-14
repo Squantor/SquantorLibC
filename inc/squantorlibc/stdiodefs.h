@@ -24,15 +24,17 @@ SOFTWARE.
 #ifndef STDIODEFS_H
 #define STDIODEFS_H
 
+#include <stdbool.h>
+#include <stddef.h>
+
 typedef struct 
 {
-    // eof
-    // error defs
+    int errno;
     // file operations
-    // read
-    // write
+    bool write(sq_FILE_t this, void *buf, size_t len, size_t *written);
+    bool read(sq_FILE_t this, const void *buf, size_t len, size_t *written);
     // seek?
     char *filename;
-} squantorlibc_FILE;
+} sq_FILE_t;
 
 #endif
