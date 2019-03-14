@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc" Version="10.0.0" InternalType="Console">
-  <VirtualDirectory Name="inc_internal">
-    <File Name="inc_internal/ctypetable.h"/>
-  </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
     </Plugin>
   </Plugins>
+  <VirtualDirectory Name="inc_internal">
+    <File Name="inc_internal/ctypetable.h"/>
+  </VirtualDirectory>
   <VirtualDirectory Name="inc">
     <VirtualDirectory Name="squantorlibc">
       <File Name="inc/squantorlibc/stdiodefs.h"/>
@@ -38,6 +38,10 @@
       <File Name="src/stdlib/strto.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="stdio">
+      <File Name="src/stdio/ferror.c"/>
+      <File Name="src/stdio/putc.c"/>
+      <File Name="src/stdio/feof.c"/>
+      <File Name="src/stdio/getc.c"/>
       <File Name="src/stdio/putsn.c"/>
       <File Name="src/stdio/getchar.c"/>
       <File Name="src/stdio/putchar.c"/>
