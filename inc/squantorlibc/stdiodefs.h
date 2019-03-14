@@ -24,12 +24,15 @@ SOFTWARE.
 #ifndef STDIODEFS_H
 #define STDIODEFS_H
 
-#include <stdint.h>
-
-struct squantorlibc_FILE
+typedef struct 
 {
-    int (*streamWrite)(uint8_t);
-    int (*streamRead)(uint8_t *);
-};
+    // eof
+    // error defs
+    // file operations
+    // read
+    // write
+    // seek?
+    char *filename;
+} squantorlibc_FILE;
 
 #endif

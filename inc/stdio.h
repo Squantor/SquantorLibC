@@ -34,20 +34,16 @@ extern "C" {
 
 #define EOF (-1)
 
-typedef struct squantorlibc_FILE FILE;
+typedef squantorlibc_FILE FILE;
 
-/* to be defined by your application */
-extern const FILE * stdin;
-extern const FILE * stdout;
-extern const FILE * stderr;
+extern FILE * stdin;
+extern FILE * stdout;
+extern FILE * stderr;
 
-int putchar(int c);
-int getchar(void);
-
-int fputc(int c, const FILE * stream);
-int fgetc(const FILE * stream);
-int puts(const char * s);
-int putsn(const char * s);
+int feof(FILE * stream);
+int ferror(FILE * stream);
+int getc(FILE * stream);
+int putc(int c, FILE * stream);
 
 #ifdef __cplusplus
 }
