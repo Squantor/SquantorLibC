@@ -30,6 +30,7 @@ extern "C" {
 
 #include <stddef.h>
 #include <stdint.h>
+#include <errno.h>
 #include "squantorlibc/stdiodefs.h"
 
 #define EOF -1

@@ -9,6 +9,7 @@
     <File Name="inc_internal/ctypetable.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
+    <File Name="inc/errno.h"/>
     <VirtualDirectory Name="squantorlibc">
       <File Name="inc/squantorlibc/stdiodefs.h"/>
     </VirtualDirectory>

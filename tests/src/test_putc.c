@@ -27,15 +27,29 @@ SOFTWARE.
 #include <test_putc.h>
 #include <stdio.h>
 
-bool testPutcWrite(sqlibcFILE_t this, void *buf, size_t len, size_t *written);
+#define GOODCHAR    55
+#define BADCHAR     0
+
+bool testPutcWrite(sqlibcFILE_t *this, void *buf, size_t len, size_t *written);
 char const testPutcFilename[] = "testPutc";
 
 sqlibcFILEops_t const testPutcOperations = {&testPutcWrite, NULL};
 FILE testPutcFile = {0, &testPutcOperations, testPutcFilename};
 
-bool testPutcWrite(sqlibcFILE_t this, void *buf, size_t len, size_t *written)
+bool testPutcWrite(sqlibcFILE_t *this, void *buf, size_t len, size_t *written)
 {
-    return true;
+    // assume single char for now
+    char c = *(char *) buf;
+    if(c == BADCHAR || len > 1)
+    {
+        this->errno = EBUSY;
+        return false;
+    }
+    else
+    {
+        *written = len;
+        return true;
+    }
 }
 
 void testPutcSetup(void) 
@@ -50,7 +64,8 @@ void testPutcTeardown(void)
 
 MU_TEST(testPutcNormal) 
 {
-    putc(10, &testPutcFile);
+    mu_check(putc(GOODCHAR, &testPutcFile) != EOF);
+    mu_check(putc(BADCHAR, &testPutcFile) == EOF);
 }
 
 MU_TEST_SUITE(testPutc) 
