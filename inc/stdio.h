@@ -33,7 +33,7 @@ extern "C" {
 #include <errno.h>
 #include "squantorlibc/stdiodefs.h"
 
-#define EOF -1
+#define EOF (-1)
 
 typedef sqlibcFILE_t FILE;
 
