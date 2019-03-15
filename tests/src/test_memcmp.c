@@ -26,6 +26,7 @@ SOFTWARE.
 #include <sqMinUnitC.h>
 #include <test_memcmp.h>
 #include <string.h>
+#include <strings.h>
 
 void testMemcmpSetup(void) 
 {
@@ -39,18 +40,13 @@ void testMemcmpTeardown(void)
 
 MU_TEST(testMemcmpEquals)
 {
-    const char xxxxx[] = "xxxxx";
-    const char abcde[] = "abcde";
-    const char abcdx[] = "abcdx";
+
     mu_check(memcmp(abcde, abcdx, 4) == 0);
     mu_check(memcmp(abcde, xxxxx, 0) == 0);
 }
 
 MU_TEST(testMemcmpNotEquals) 
 {
-    const char xxxxx[] = "xxxxx";
-    const char abcde[] = "abcde";
-    const char abcdx[] = "abcdx";
     mu_check(memcmp(abcde, abcdx, 5) < 0);
     mu_check(memcmp(xxxxx, abcde, 1) > 0);    
 }

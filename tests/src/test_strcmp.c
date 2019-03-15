@@ -26,6 +26,7 @@ SOFTWARE.
 #include <string.h>
 #include <sqMinUnitC.h>
 #include <test_strcmp.h>
+#include <strings.h>
 
 void testStrcmpSetup(void) 
 {
@@ -39,8 +40,7 @@ void testStrcmpTeardown(void)
 
 MU_TEST(testStrcmpNormal) 
 {
-    const char abcdx[] = "abcdx";
-    const char abcde[] = "abcde";
+
     char cmpabcde[] = "abcde";
     char cmpabcd_[] = "abcd\xfc";
     char empty[] = "";

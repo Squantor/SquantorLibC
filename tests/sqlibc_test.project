@@ -6,6 +6,7 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/strings.c"/>
     <File Name="src/test_strcpy.c"/>
     <File Name="src/test_strncpy.c"/>
     <File Name="src/test_strcmp.c"/>
@@ -30,6 +31,7 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
+    <File Name="inc/strings.h"/>
     <File Name="inc/test_strcpy.h"/>
     <File Name="inc/test_strncpy.h"/>
     <File Name="inc/test_strcmp.h"/>
