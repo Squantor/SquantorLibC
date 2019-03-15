@@ -25,6 +25,8 @@ SOFTWARE.
 */
 #include <sqMinUnitC.h>
 #include <test_strncpy.h>
+#include <string.h>
+#include <strings.h>
 
 void testStrncpySetup(void) 
 {
@@ -38,7 +40,21 @@ void testStrncpyTeardown(void)
 
 MU_TEST(testStrncpyNormal) 
 {
-
+    char s[] = "xxxxxxx";
+    mu_check(strncpy(s, "", 1) == s);
+    mu_check(s[0] == '\0');
+    mu_check(s[1] == 'x');
+    mu_check(strncpy(s, abcde, 6) == s);
+    mu_check(s[0] == 'a');
+    mu_check(s[4] == 'e');
+    mu_check(s[5] == '\0');
+    mu_check(s[6] == 'x');
+    mu_check(strncpy(s, abcde, 7) == s);
+    mu_check(s[6] == '\0');
+    mu_check(strncpy(s, "xxxx", 3) == s);
+    mu_check(s[0] == 'x');
+    mu_check(s[2] == 'x');
+    mu_check(s[3] == 'd');
 }
 
 MU_TEST_SUITE(testStrncpy) 

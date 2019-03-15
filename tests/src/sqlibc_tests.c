@@ -69,6 +69,8 @@ int main()
     testMemchrSuite();
     testStrlenSuite();
     testStrcmpSuite();
+    testStrncpySuite();
+    testStrcpySuite();
     testPutcSuite();
     testGetcSuite();
     testFeofSuite();
