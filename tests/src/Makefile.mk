@@ -1,6 +1,7 @@
 # project settings
 BIN_NAME = sqlibc_test
 C_SOURCES += src/sqlibc_tests.c \
+src/mock_file.c \
 src/test_strlen.c \
 src/test_memset.c src/test_memcmp.c src/test_memcpy.c src/test_memmove.c src/test_memchr.c \
 src/test_dummy.c \

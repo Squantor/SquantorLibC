@@ -6,6 +6,7 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/mock_file.c"/>
     <File Name="src/test_dummy.c"/>
     <File Name="src/test_ferror.c"/>
     <File Name="src/test_feof.c"/>
@@ -26,6 +27,7 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
+    <File Name="inc/mock_file.h"/>
     <File Name="inc/test_putc.h"/>
     <File Name="inc/test_ferror.h"/>
     <File Name="inc/test_getc.h"/>

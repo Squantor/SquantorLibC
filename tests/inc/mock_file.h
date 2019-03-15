@@ -21,36 +21,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-/*
-*/
-#include <sqMinUnitC.h>
-#include <test_putc.h>
+#ifndef MOCK_FILE_H
+#define MOCK_FILE_H
+
 #include <stdio.h>
-#include <mock_file.h>
 
-void testPutcSetup(void) 
-{
-    
-}
+#define GOODCHAR    55
+#define BADCHAR     0
 
-void testPutcTeardown(void) 
-{
+extern FILE testFile;
 
-}
+void mockFileReset(void);
 
-MU_TEST(testPutcNormal) 
-{
-    mu_check(putc(GOODCHAR, &testFile) != EOF);
-    mu_check(putc(BADCHAR, &testFile) == EOF);
-}
-
-MU_TEST_SUITE(testPutc) 
-{
-    MU_SUITE_CONFIGURE(&testPutcSetup, &testPutcTeardown);
-    MU_RUN_TEST(testPutcNormal);
-}
-
-void testPutcSuite()
-{
-    MU_RUN_SUITE(testPutc);
-}
+#endif

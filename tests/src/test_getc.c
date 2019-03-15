@@ -26,37 +26,7 @@ SOFTWARE.
 #include <sqMinUnitC.h>
 #include <test_getc.h>
 #include <stdio.h>
-
-bool testGetcRead(sqlibcFILE_t *this, void *buf, size_t len, size_t *read);
-char const testGetcFilename[] = "testGetc";
-char const testbuf[] = "1A";
-size_t testbufIndex = 0;
-
-sqlibcFILEops_t const testGetcOperations = {NULL, testGetcRead};
-FILE testGetcFile = {0, &testGetcOperations, testGetcFilename};
-
-bool testGetcRead(sqlibcFILE_t *this, void *buf, size_t len, size_t *read)
-{
-    if(len != 1)
-    {
-        this->errno = EINVAL;
-        return false;
-    }
-    if(testbufIndex < sizeof(testbuf))
-    {
-        char *c = (char *) buf;
-        *c = testbuf[testbufIndex];
-        *read = sizeof(char);
-        testbufIndex++;
-        return true;
-    }
-    else
-    {
-        this->errno = EBUSY;
-        return false;
-    }
-}
-
+#include <mock_file.h>
 
 void testGetcSetup(void) 
 {
@@ -71,13 +41,13 @@ void testGetcTeardown(void)
 MU_TEST(testGetcNormal) 
 {
     int c;
-    c = getc(&testGetcFile);
+    c = getc(&testFile);
     mu_check(c == '1');
-    c = getc(&testGetcFile);
+    c = getc(&testFile);
     mu_check(c == 'A');
-    c = getc(&testGetcFile);
+    c = getc(&testFile);
     mu_check(c == '\0');
-    c = getc(&testGetcFile);
+    c = getc(&testFile);
     mu_check(c == EOF);
 }
 
