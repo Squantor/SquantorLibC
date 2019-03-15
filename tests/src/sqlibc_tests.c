@@ -66,6 +66,7 @@ int main() {
     testMemchrSuite();
     testPutcSuite();
     testGetcSuite();
+    testFeofSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");
