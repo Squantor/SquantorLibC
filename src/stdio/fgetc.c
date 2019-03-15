@@ -23,16 +23,17 @@ SOFTWARE.
 */
 #include <stdio.h>
 
-int fgetc (const rStream * stream)
+int fgetc(FILE* stream)
 {
-    if(stream->readStream != NULL)
+    char c;
+    size_t read;
+    bool success = stream->operations->read(stream, &c, sizeof(c), &read);
+    if(success && sizeof(c) == read)
     {
-        char c;
-        if(stream->readStream(&c) != noError)
-            return EOF;
-        else
-            return (int) c;
+        return (int) c;
     }
     else
+    {
         return EOF;
+    }
 }

@@ -40,6 +40,7 @@ typedef sqlibcFILE_t FILE;
 int feof(FILE * stream);
 int ferror(FILE * stream);
 int fputc(int c, FILE* stream);
+int fgetc(FILE* stream);
 
 int getc(FILE * stream);
 int putc(int c, FILE * stream);

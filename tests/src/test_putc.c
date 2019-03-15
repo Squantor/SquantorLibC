@@ -30,17 +30,22 @@ SOFTWARE.
 #define GOODCHAR    55
 #define BADCHAR     0
 
-bool testPutcWrite(sqlibcFILE_t *this, void *buf, size_t len, size_t *written);
+bool testPutcWrite(sqlibcFILE_t *this, const void *buf, size_t len, size_t *written);
 char const testPutcFilename[] = "testPutc";
 
 sqlibcFILEops_t const testPutcOperations = {&testPutcWrite, NULL};
 FILE testPutcFile = {0, &testPutcOperations, testPutcFilename};
 
-bool testPutcWrite(sqlibcFILE_t *this, void *buf, size_t len, size_t *written)
+bool testPutcWrite(sqlibcFILE_t *this, const void *buf, size_t len, size_t *written)
 {
-    // assume single char for now
+    if(len != 1)
+    {
+        this->errno = EINVAL;
+        return false;
+    }
+    // differentiate between bad and good to test both code paths
     char c = *(char *) buf;
-    if(c == BADCHAR || len > 1)
+    if(c == BADCHAR)
     {
         this->errno = EBUSY;
         return false;

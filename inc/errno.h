@@ -32,6 +32,7 @@ SOFTWARE.
 #define EAGAIN  11
 #define EFAULT  14
 #define EBUSY   16
+#define EINVAL  22
 #define EROFS   30
 #define ENOSYS  38
 
