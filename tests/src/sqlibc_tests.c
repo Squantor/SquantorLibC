@@ -22,14 +22,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <rt0/syscall.h>
-#include <test_strlen.h>
 #include <test_memset.h>
 #include <test_memcmp.h>
 #include <test_memmove.h>
 #include <test_memcpy.h>
 #include <test_memchr.h>
+#include <test_strlen.h>
+#include <test_strcmp.h>
 #include <test_putc.h>
 #include <test_getc.h>
+#include <test_feof.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */
@@ -56,14 +58,15 @@ void println( const char* string )
 }
 
 //int main(int argc, char *argv[]) {
-int main() {
-    // sort test modules on dependencies
-    testStrlenSuite();
+int main() 
+{   
     testMemsetSuite();
     testMemcmpSuite();
     testMemcpySuite();
     testMemmoveSuite();
     testMemchrSuite();
+    testStrlenSuite();
+    testStrcmpSuite();
     testPutcSuite();
     testGetcSuite();
     testFeofSuite();
