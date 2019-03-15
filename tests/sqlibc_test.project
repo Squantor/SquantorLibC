@@ -6,6 +6,8 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="src">
+    <File Name="src/test_strcpy.c"/>
+    <File Name="src/test_strncpy.c"/>
     <File Name="src/test_strcmp.c"/>
     <File Name="src/mock_file.c"/>
     <File Name="src/test_dummy.c"/>
@@ -28,6 +30,8 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="inc">
+    <File Name="inc/test_strcpy.h"/>
+    <File Name="inc/test_strncpy.h"/>
     <File Name="inc/test_strcmp.h"/>
     <File Name="inc/mock_file.h"/>
     <File Name="inc/test_putc.h"/>

@@ -29,6 +29,8 @@ SOFTWARE.
 #include <test_memchr.h>
 #include <test_strlen.h>
 #include <test_strcmp.h>
+#include <test_strcpy.h>
+#include <test_strncpy.h>
 #include <test_putc.h>
 #include <test_getc.h>
 #include <test_feof.h>
