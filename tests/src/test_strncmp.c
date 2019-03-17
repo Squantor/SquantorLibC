@@ -21,30 +21,48 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#ifndef STRING_H
-#define STRING_H
+/*
+*/
+#include <string.h>
+#include <sqMinUnitC.h>
+#include <test_strncmp.h>
+#include <strings.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include <stddef.h>
-
-void * memchr(const void * s, int c, size_t n);
-void * memset(void * s, int c, size_t n);
-void * memmove(void * s1, const void * s2, size_t n);
-void * memcpy(void * restrict s1, const void * restrict s2, size_t n);
-int memcmp(const void * s1, const void * s2, size_t n);
-
-size_t strlen(const char * str);
-size_t strnlen(const char * str, size_t num);
-int strcmp(const char * s1, const char * s2);
-int strncmp(const char *s1, const char *s2, size_t n);
-char * strncpy(char * restrict s1, const char * restrict s2, size_t n);
-char * strtok_r(char * restrict s1, const char * restrict s2, char ** pos);
-
-#ifdef __cplusplus
+void testStrncmpSetup(void) 
+{
+    
 }
-#endif
 
-#endif
+void testStrncmpTeardown(void) 
+{
+
+}
+
+MU_TEST(testStrncmpNormal) 
+{
+    char cmpabcde[] = "abcde\0f";
+    char cmpabcd_[] = "abcde\xfc";
+    char empty[] = "";
+    char x[] = "x";
+    mu_check(strncmp(abcde, cmpabcde, 5) == 0);
+    mu_check(strncmp(abcde, cmpabcde, 10) == 0);
+    mu_check(strncmp(abcde, abcdx, 5) < 0);
+    mu_check(strncmp(abcdx, abcde, 5) > 0);
+    mu_check(strncmp(empty, abcde, 5) < 0);
+    mu_check(strncmp(abcde, empty, 5) > 0);
+    mu_check(strncmp(abcde, abcdx, 4) == 0);
+    mu_check(strncmp(abcde, x, 0) == 0);
+    mu_check(strncmp(abcde, x, 1) < 0);
+    mu_check(strncmp(abcde, cmpabcd_, 10) < 0);
+}
+
+MU_TEST_SUITE(testStrncmp) 
+{
+    MU_SUITE_CONFIGURE(&testStrncmpSetup, &testStrncmpTeardown);
+    MU_RUN_TEST(testStrncmpNormal);
+}
+
+void testStrncmpSuite()
+{
+    MU_RUN_SUITE(testStrncmp);
+}
