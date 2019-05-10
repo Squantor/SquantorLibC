@@ -13,6 +13,9 @@
     <File Name="inc_internal/ctypetable.h"/>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <VirtualDirectory Name="errno">
+      <File Name="src/errno/errno.c"/>
+    </VirtualDirectory>
     <VirtualDirectory Name="stdlib">
       <File Name="src/stdlib/strtol.c"/>
       <File Name="src/stdlib/strstol.c"/>
