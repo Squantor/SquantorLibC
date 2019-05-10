@@ -7,7 +7,7 @@ src/test_tolower.c src/test_toupper.c \
 src/test_strto_pre.c src/test_strto_main.c
 CXX_SOURCES +=
 S_SOURCES +=
-INCLUDES = -Iinc -I../inc
+INCLUDES = -Iinc -I../inc -I../inc_internal
 COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra
 COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra
 COMPILE_ASM_FLAGS += -c -x assembler-with-cpp

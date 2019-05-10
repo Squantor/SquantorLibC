@@ -25,6 +25,7 @@ SOFTWARE.
 */
 #include <sqMinUnitC.h>
 #include <test_strto_pre.h>
+#include <strto_internal.h>
 
 void testStrtoPreSetup(void) 
 {
@@ -36,15 +37,55 @@ void testStrtoPreTeardown(void)
 
 }
 
-MU_TEST(testStrtoPreNormal) 
+MU_TEST(testStrtoPreInvalid) 
 {
+    int base = 1;
+    char sign = '\0';
+    char test3[] = "\v-0x123";
+    mu_check(strto_pre(test3, &sign, &base) == NULL);
+    base = 37;
+    mu_check(strto_pre(test3, &sign, &base) == NULL);
+}
 
+MU_TEST(testStrtoPrePositive) 
+{
+    int base = 0;
+    char sign = '\0';
+    char test1[] = "  123";
+    char test2[] = "\t+0123";
+    mu_check(strto_pre(test1, &sign, &base) == &test1[2]);
+    mu_check(sign == '+');
+    mu_check(base == 10);
+    base = 0;
+    sign = '\0';
+    mu_check(strto_pre(test2, &sign, &base) == &test2[3]);
+    mu_check(sign == '+');
+    mu_check(base == 8);
+}
+
+MU_TEST(testStrtoPreNegative) 
+{
+    int base = 0;
+    char sign = '\0';
+    char test3[] = "\v-0x123";
+    base = 0;
+    sign = '\0';
+    mu_check(strto_pre(test3, &sign, &base) == &test3[4]);
+    mu_check(sign == '-');
+    mu_check(base == 16);
+    base = 10;
+    sign = '\0';
+    mu_check(strto_pre(test3, &sign, &base) == &test3[2]);
+    mu_check(sign == '-');
+    mu_check(base == 10);
 }
 
 MU_TEST_SUITE(testStrtoPre) 
 {
     MU_SUITE_CONFIGURE(&testStrtoPreSetup, &testStrtoPreTeardown);
-    MU_RUN_TEST(testStrtoPreNormal);
+    MU_RUN_TEST(testStrtoPreInvalid);
+    MU_RUN_TEST(testStrtoPrePositive);
+    MU_RUN_TEST(testStrtoPreNegative);
 }
 
 void testStrtoPreSuite()
