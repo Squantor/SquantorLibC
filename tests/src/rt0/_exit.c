@@ -31,5 +31,6 @@ Modified with help from: https://github.com/zhmu
 void _exit(int r)
 {
    syscall1( SYS_exit, r );
+   while(1);
 }
 

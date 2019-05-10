@@ -29,6 +29,7 @@ SOFTWARE.
 #include <test_memchr.h>
 #include <test_strlen.h>
 #include <test_strcmp.h>
+#include <test_strncmp.h>
 #include <test_strcpy.h>
 #include <test_strncpy.h>
 
