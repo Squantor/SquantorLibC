@@ -25,6 +25,8 @@ SOFTWARE.
 */
 #include <sqMinUnitC.h>
 #include <test_strto_main.h>
+#include <errno.h>
+#include <strto_internal.h>
 
 void testStrtoMainSetup(void) 
 {
@@ -38,7 +40,33 @@ void testStrtoMainTeardown(void)
 
 MU_TEST(testStrtoMainNormal) 
 {
-
+    const char * p;
+    char test[] = "123_";
+    char fail[] = "xxx";
+    char sign = '-';
+    /* basic functionality */
+    p = test;
+    errno = 0;
+    mu_check(strto_main(&p, 10u, (uintmax_t)999, (uintmax_t)12, 3, &sign) == 123);
+    mu_check(errno == 0);
+    mu_check(p == &test[3]);
+    /* proper functioning to smaller base */
+    p = test;
+    mu_check(strto_main(&p, 8u, (uintmax_t)999, (uintmax_t)12, 3, &sign) == 0123);
+    mu_check(errno == 0);
+    mu_check(p == &test[3]);
+    /* overflowing subject sequence must still return proper endptr */
+    p = test;
+    mu_check(strto_main(&p, 4u, (uintmax_t)999, (uintmax_t)1, 2, &sign) == 999);
+    mu_check(errno == ERANGE);
+    mu_check(p == &test[3]);
+    mu_check(sign == '+');
+    /* testing conversion failure */
+    errno = 0;
+    p = fail;
+    sign = '-';
+    mu_check(strto_main(&p, 10u, (uintmax_t)999, (uintmax_t)99, 8, &sign) == 0);
+    mu_check(p == NULL);
 }
 
 MU_TEST_SUITE(testStrtoMain) 
