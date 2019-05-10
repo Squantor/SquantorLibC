@@ -23,9 +23,9 @@ SOFTWARE.
 */
 /*
 */
-#ifndef TEST_DUMMY_H
-#define TEST_DUMMY_H
+#ifndef TEST_STRTOL_H
+#define TEST_STRTOL_H
 
-void testDummySuite();
+void testStrtolSuite();
 
 #endif

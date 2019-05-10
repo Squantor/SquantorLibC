@@ -35,6 +35,8 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <File Name="src/test_strtoul.c"/>
+    <File Name="src/test_strtol.c"/>
     <File Name="src/test_strto_pre.c"/>
     <File Name="src/test_strto_main.c"/>
     <File Name="src/test_toupper.c"/>

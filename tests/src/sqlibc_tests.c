@@ -36,6 +36,7 @@ SOFTWARE.
 #include <test_toupper.h>
 #include <test_strto_pre.h>
 #include <test_strto_main.h>
+#include <test_strtol.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */
@@ -78,6 +79,7 @@ int main()
     testToLowerSuite();
     testStrtoPreSuite();
     testStrtoMainSuite();
+    testStrtolSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");
