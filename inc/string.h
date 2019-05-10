@@ -30,19 +30,20 @@ extern "C" {
 
 #include <stddef.h>
 
-void * memchr(const void * s, int c, size_t n);
-void * memset(void * s, int c, size_t n);
-void * memmove(void * s1, const void * s2, size_t n);
-void * memcpy(void * restrict s1, const void * restrict s2, size_t n);
-int memcmp(const void * s1, const void * s2, size_t n);
+void *memchr(const void *s, int c, size_t n);
+void *memset(void *s, int c, size_t n);
+void *memmove(void *s1, const void * s2, size_t n);
+void *memcpy(void *__restrict__ s1, const void *__restrict__ s2, size_t n);
+int memcmp(const void *s1, const void *s2, size_t n);
 
-size_t strlen(const char * str);
-size_t strnlen(const char * str, size_t num);
-char * strcpy(char * restrict s1, const char * restrict s2);
-int strcmp(const char * s1, const char * s2);
+size_t strlen(const char *str);
+size_t strnlen(const char *str, size_t num);
+char *strcpy(char *__restrict__ s1, const char *__restrict__ s2);
+int strcmp(const char *s1, const char *s2);
 int strncmp(const char *s1, const char *s2, size_t n);
-char * strncpy(char * restrict s1, const char * restrict s2, size_t n);
-char * strtok_r(char * restrict s1, const char * restrict s2, char ** pos);
+char *strncpy(char *__restrict__ s1, const char *__restrict__ s2, size_t n);
+char *strcpy(char *__restrict__ s1, const char *__restrict__ s2);
+char *strtok_r(char *__restrict__ s1, const char *__restrict__ s2, char ** pos);
 
 #ifdef __cplusplus
 }
