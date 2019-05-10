@@ -1,65 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc_test" Version="10.0.0" InternalType="Console">
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0005debug000000000000]]>
-    </Plugin>
-  </Plugins>
-  <VirtualDirectory Name="src">
-    <File Name="src/test_strncmp.c"/>
-    <File Name="src/strings.c"/>
-    <File Name="src/test_strcpy.c"/>
-    <File Name="src/test_strncpy.c"/>
-    <File Name="src/test_strcmp.c"/>
-    <File Name="src/mock_file.c"/>
-    <File Name="src/test_dummy.c"/>
-    <File Name="src/test_ferror.c"/>
-    <File Name="src/test_feof.c"/>
-    <File Name="src/test_getc.c"/>
-    <File Name="src/test_putc.c"/>
-    <File Name="src/test_memchr.c"/>
-    <File Name="src/sqlibc_tests.c"/>
-    <File Name="src/test_strtok.c"/>
-    <File Name="src/test_memset.c"/>
-    <File Name="src/test_memcmp.c"/>
-    <File Name="src/test_strlen.c"/>
-    <File Name="src/test_memmove.c"/>
-    <File Name="src/test_strto.c"/>
-    <File Name="src/test_memcpy.c"/>
-    <VirtualDirectory Name="rt0">
-      <File Name="src/rt0/00_start.c"/>
-      <File Name="src/rt0/_exit.c"/>
-    </VirtualDirectory>
-  </VirtualDirectory>
   <VirtualDirectory Name="inc">
-    <File Name="inc/test_strncmp.h"/>
-    <File Name="inc/strings.h"/>
-    <File Name="inc/test_strcpy.h"/>
-    <File Name="inc/test_strncpy.h"/>
-    <File Name="inc/test_strcmp.h"/>
-    <File Name="inc/mock_file.h"/>
-    <File Name="inc/test_putc.h"/>
-    <File Name="inc/test_ferror.h"/>
-    <File Name="inc/test_getc.h"/>
-    <File Name="inc/test_feof.h"/>
-    <File Name="inc/test_dummy.h"/>
-    <File Name="inc/test_memchr.h"/>
-    <File Name="inc/test_memcmp.h"/>
-    <File Name="inc/test_memset.h"/>
-    <File Name="inc/test_memmove.h"/>
-    <File Name="inc/test_memcpy.h"/>
     <File Name="inc/test_strto.h"/>
-    <File Name="inc/minunit.h"/>
+    <File Name="inc/test_memcmp.h"/>
     <File Name="inc/sqlibc_tests.h"/>
     <File Name="inc/test_strtok.h"/>
     <File Name="inc/sqMinUnitC.h"/>
+    <File Name="inc/test_memset.h"/>
+    <File Name="inc/test_memmove.h"/>
     <File Name="inc/test_strlen.h"/>
+    <File Name="inc/strings.h"/>
+    <File Name="inc/test_strcpy.h"/>
+    <File Name="inc/test_memcpy.h"/>
+    <File Name="inc/test_strncmp.h"/>
+    <File Name="inc/test_strncpy.h"/>
+    <File Name="inc/test_dummy.h"/>
+    <File Name="inc/test_strcmp.h"/>
+    <File Name="inc/test_memchr.h"/>
     <VirtualDirectory Name="rt0">
       <File Name="inc/rt0/syscall.h"/>
       <File Name="inc/rt0/sys64.h"/>
       <File Name="inc/rt0/rt0.h"/>
     </VirtualDirectory>
   </VirtualDirectory>
+  <VirtualDirectory Name="src">
+    <File Name="src/sqlibc_tests.c"/>
+    <File Name="src/test_strcpy.c"/>
+    <File Name="src/test_dummy.c"/>
+    <File Name="src/test_strtok.c"/>
+    <File Name="src/test_memset.c"/>
+    <File Name="src/test_memchr.c"/>
+    <File Name="src/test_memcmp.c"/>
+    <File Name="src/strings.c"/>
+    <File Name="src/test_strlen.c"/>
+    <File Name="src/test_strcmp.c"/>
+    <File Name="src/test_memmove.c"/>
+    <File Name="src/test_strto.c"/>
+    <File Name="src/test_strncmp.c"/>
+    <File Name="src/test_memcpy.c"/>
+    <File Name="src/test_strncpy.c"/>
+    <VirtualDirectory Name="rt0">
+      <File Name="src/rt0/00_start.c"/>
+      <File Name="src/rt0/_exit.c"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00030001N0005Debug0000000000000001N0007Release0000000000000001N0005debug000000000000]]>
+    </Plugin>
+  </Plugins>
   <Description/>
   <Dependencies/>
   <Dependencies Name="Debug"/>

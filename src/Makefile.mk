@@ -5,8 +5,7 @@ src/string/strtok.c src/string/strcmp.c src/string/strcpy.c src/string/strncpy.c
 src/string/memchr.c src/string/memcmp.c src/string/memcpy.c src/string/memmove.c src/string/memset.c \
 src/stdlib/strto.c \
 src/internal/ctypetable.c \
-src/ctype/isspace.c src/ctype/isxdigit.c \
-src/stdio/fputc.c src/stdio/putc.c src/stdio/fgetc.c src/stdio/getc.c
+src/ctype/isspace.c src/ctype/isxdigit.c
 INCLUDES = -Iinc -Iinc_internal
 COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra -Wno-main 
 COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra -Wno-main

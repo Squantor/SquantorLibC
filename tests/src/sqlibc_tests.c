@@ -31,9 +31,6 @@ SOFTWARE.
 #include <test_strcmp.h>
 #include <test_strcpy.h>
 #include <test_strncpy.h>
-#include <test_putc.h>
-#include <test_getc.h>
-#include <test_feof.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */
@@ -72,9 +69,6 @@ int main()
     testStrncmpSuite();
     testStrcpySuite();
     testStrncpySuite();
-    testPutcSuite();
-    testGetcSuite();
-    testFeofSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");
