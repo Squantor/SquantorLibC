@@ -21,29 +21,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <strto_internal.h>
-#include <limits.h>
+#ifndef STRTO_INTERNAL_H
+#define STRTO_INTERNAL_H
 
-long int strtol(const char * s, char ** endptr, int base)
-{
-    long int rc;
-    char sign = '+';
-    const char *p = strto_pre(s, &sign, &base);
-    if(base < 2 || base > 36) 
-        return 0;
-    if(sign == '+')
-    {
-        rc = strto_main(&p, (unsigned)base, (uintmax_t)LONG_MAX, (uintmax_t)(LONG_MAX / base), (int)(LONG_MAX % base), &sign);
-    }
-    else
-    {
-        rc = strto_main(&p, (unsigned)base, (uintmax_t)LONG_MIN, (uintmax_t)(LONG_MIN / -base), (int)(-( LONG_MIN % base)), &sign);
-    }
-    if(endptr != NULL) 
-        *endptr = (p != NULL) ? (char *) p : (char *) s;
-    return (sign == '+') ? rc : -rc;
-}
+#include <stdint.h>
 
+const char *strto_pre(const char *p, char *sign, int *base);
+long int strto_main(const char **p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char *sign);
+
+#endif

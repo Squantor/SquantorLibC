@@ -21,29 +21,45 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <stdlib.h>
-#include <string.h>
+/*
+Implementation taken from PDCLib
+*/
+
 #include <ctype.h>
+#include <errno.h>
+#include <string.h>
+#include <stdint.h>
 #include <strto_internal.h>
-#include <limits.h>
+#include <libc_strings.h>
 
-long int strtol(const char * s, char ** endptr, int base)
+long int strto_main(const char **p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char *sign)
 {
-    long int rc;
-    char sign = '+';
-    const char *p = strto_pre(s, &sign, &base);
-    if(base < 2 || base > 36) 
+    long int rc = 0;
+    int digit = -1;
+    const char * x;
+    while((x = memchr(libc_digits, tolower(**p), base)) != NULL)
+    {
+        digit = x - libc_digits;
+        if(((uintmax_t)rc < limval) || (((uintmax_t)rc == limval) && (digit <= limdigit)))
+        {
+            rc = rc * base + (unsigned)digit;
+            ++(*p);
+        }
+        else
+        {
+            errno = ERANGE;
+            /* TODO: Only if endptr != NULL - but do we really want *another* parameter? */
+            while(memchr(libc_digits, tolower(**p), base) != NULL) 
+                ++(*p);
+            /* TODO: This is ugly, but keeps caller from negating the error value */
+            *sign = '+';
+            return error;
+        }
+    }
+    if (digit == -1)
+    {
+        *p = NULL;
         return 0;
-    if(sign == '+')
-    {
-        rc = strto_main(&p, (unsigned)base, (uintmax_t)LONG_MAX, (uintmax_t)(LONG_MAX / base), (int)(LONG_MAX % base), &sign);
     }
-    else
-    {
-        rc = strto_main(&p, (unsigned)base, (uintmax_t)LONG_MIN, (uintmax_t)(LONG_MIN / -base), (int)(-( LONG_MIN % base)), &sign);
-    }
-    if(endptr != NULL) 
-        *endptr = (p != NULL) ? (char *) p : (char *) s;
-    return (sign == '+') ? rc : -rc;
+    return rc;
 }
-

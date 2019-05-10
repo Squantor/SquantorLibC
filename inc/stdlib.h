@@ -32,7 +32,10 @@ extern "C" {
 
 unsigned long int strtoul(const char * s, char ** endptr, int base);
 long int strtol(const char * s, char ** endptr, int base);
-long int strstol(const char * s);
+
+long int strtol( const char * __restrict__ nptr, char ** __restrict__ endptr, int base ) __attribute__((nothrow));
+unsigned long int strtoul( const char * __restrict__ nptr, char * * __restrict__ endptr, int base ) __attribute__((nothrow));
+
 
 #ifdef __cplusplus
 }

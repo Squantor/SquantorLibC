@@ -21,29 +21,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <strto_internal.h>
+/*
+Implementation taken from PDCLib
+*/
+
 #include <limits.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <strto_internal.h>
 
-long int strtol(const char * s, char ** endptr, int base)
+unsigned long int strtoul( const char * s, char ** endptr, int base )
 {
-    long int rc;
+    unsigned long int rc;
     char sign = '+';
-    const char *p = strto_pre(s, &sign, &base);
-    if(base < 2 || base > 36) 
-        return 0;
-    if(sign == '+')
-    {
-        rc = strto_main(&p, (unsigned)base, (uintmax_t)LONG_MAX, (uintmax_t)(LONG_MAX / base), (int)(LONG_MAX % base), &sign);
-    }
-    else
-    {
-        rc = strto_main(&p, (unsigned)base, (uintmax_t)LONG_MIN, (uintmax_t)(LONG_MIN / -base), (int)(-( LONG_MIN % base)), &sign);
-    }
-    if(endptr != NULL) 
-        *endptr = (p != NULL) ? (char *) p : (char *) s;
-    return (sign == '+') ? rc : -rc;
+    const char * p = strto_pre( s, &sign, &base );
+    if ( base < 2 || base > 36 ) return 0;
+    rc = (unsigned long int)strto_main( &p, (unsigned)base, (uintmax_t)ULONG_MAX, (uintmax_t)( ULONG_MAX / base ), (int)( ULONG_MAX % base ), &sign );
+    if ( endptr != NULL ) *endptr = ( p != NULL ) ? (char *) p : (char *) s;
+    return ( sign == '+' ) ? rc : -rc;
 }
-

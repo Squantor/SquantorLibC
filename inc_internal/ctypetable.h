@@ -44,7 +44,9 @@ typedef enum
 
 typedef struct 
 {
-    uint16_t flags;  
+    uint16_t flags;
+    unsigned char upper;
+    unsigned char lower;
 } ctypeEntry;
 
 extern const ctypeEntry asciiTableCtypes[128];

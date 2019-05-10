@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc" Version="10.0.0" InternalType="Console">
-  <VirtualDirectory Name="inc">
-    <File Name="inc/stdlib.h"/>
-    <File Name="inc/ctype.h"/>
-    <File Name="inc/string.h"/>
-    <File Name="inc/errno.h"/>
-    <VirtualDirectory Name="squantorlibc">
-      <File Name="inc/squantorlibc/stdiodefs.h"/>
-    </VirtualDirectory>
-  </VirtualDirectory>
-  <VirtualDirectory Name="inc_internal">
-    <File Name="inc_internal/ctypetable.h"/>
-  </VirtualDirectory>
   <VirtualDirectory Name="src">
-    <VirtualDirectory Name="errno">
-      <File Name="src/errno/errno.c"/>
-    </VirtualDirectory>
     <VirtualDirectory Name="stdlib">
+      <File Name="src/stdlib/strtol_old.c"/>
       <File Name="src/stdlib/strtol.c"/>
+      <File Name="src/stdlib/strtoul.c"/>
       <File Name="src/stdlib/strstol.c"/>
       <File Name="src/stdlib/strto.c"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="errno">
+      <File Name="src/errno/errno.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="string">
       <File Name="src/string/strcpy.c"/>
@@ -37,6 +27,9 @@
       <File Name="src/string/memcpy.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="internal">
+      <File Name="src/internal/libc_strings.c"/>
+      <File Name="src/internal/strto_pre.c"/>
+      <File Name="src/internal/strto_main.c"/>
       <File Name="src/internal/ctypetable.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="ctype">
@@ -56,6 +49,20 @@
       <File Name="src/ctype/islower.c"/>
       <File Name="src/ctype/isprint.c"/>
     </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="inc">
+    <File Name="inc/stdlib.h"/>
+    <File Name="inc/ctype.h"/>
+    <File Name="inc/string.h"/>
+    <File Name="inc/errno.h"/>
+    <VirtualDirectory Name="squantorlibc">
+      <File Name="inc/squantorlibc/stdiodefs.h"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="inc_internal">
+    <File Name="inc_internal/libc_strings.h"/>
+    <File Name="inc_internal/strto_internal.h"/>
+    <File Name="inc_internal/ctypetable.h"/>
   </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
