@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc_test" Version="10.0.0" InternalType="Console">
   <VirtualDirectory Name="inc">
+    <File Name="inc/test_strto_main.h"/>
+    <File Name="inc/test_strtoul.h"/>
+    <File Name="inc/test_strtol.h"/>
+    <File Name="inc/test_strto_pre.h"/>
+    <File Name="inc/test_tolower.h"/>
+    <File Name="inc/test_toupper.h"/>
     <File Name="inc/test_strto.h"/>
     <File Name="inc/test_memcmp.h"/>
     <File Name="inc/sqlibc_tests.h"/>
@@ -24,6 +30,8 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <File Name="src/test_toupper.c"/>
+    <File Name="src/test_tolower.c"/>
     <File Name="src/sqlibc_tests.c"/>
     <File Name="src/test_strcpy.c"/>
     <File Name="src/test_dummy.c"/>

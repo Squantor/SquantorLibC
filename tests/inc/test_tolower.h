@@ -21,10 +21,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-#include <ctype.h>
-#include <ctypetable.h>
+/*
+*/
+#ifndef TEST_TOLOWER_H
+#define TEST_TOLOWER_H
 
-int tolower(int c)
-{
-    return asciiTableCtypes[c].lower;
-}
+void testToLowerSuite();
+
+#endif

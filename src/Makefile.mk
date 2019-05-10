@@ -7,6 +7,7 @@ src/stdlib/strto.c src/stdlib/strtoul.c src/stdlib/strtol.c\
 src/internal/ctypetable.c src/internal/libc_strings.c \
 src/internal/strto_pre.c src/internal/strto_main.c \
 src/ctype/isspace.c src/ctype/isxdigit.c \
+src/ctype/toupper.c src/ctype/tolower.c \
 src/errno/errno.c
 INCLUDES = -Iinc -Iinc_internal
 COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra -Wno-main 

@@ -21,10 +21,37 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+/*
+*/
+#include <sqMinUnitC.h>
+#include <test_toupper.h>
 #include <ctype.h>
-#include <ctypetable.h>
 
-int tolower(int c)
+void testToUpperSetup(void) 
 {
-    return asciiTableCtypes[c].lower;
+}
+
+void testToUpperTeardown(void) 
+{
+}
+
+MU_TEST(testToUpperNormal) 
+{
+    mu_check(toupper('a') == 'A');
+    mu_check(toupper('z') == 'Z');
+    mu_check(toupper('A') == 'A');
+    mu_check(toupper('Z') == 'Z');
+    mu_check(toupper('@') == '@');
+    mu_check(toupper('[') == '[');
+}
+
+MU_TEST_SUITE(testToUpper) 
+{
+    MU_SUITE_CONFIGURE(&testToUpperSetup, &testToUpperTeardown);
+    MU_RUN_TEST(testToUpperNormal);
+}
+
+void testToUpperSuite()
+{
+    MU_RUN_SUITE(testToUpper);
 }
