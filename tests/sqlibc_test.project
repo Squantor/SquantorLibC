@@ -6,6 +6,7 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="inc">
+    <File Name="inc/test_strchr.h"/>
     <File Name="inc/test_strto_main.h"/>
     <File Name="inc/test_strtoul.h"/>
     <File Name="inc/test_strtol.h"/>
@@ -35,6 +36,7 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <File Name="src/test_strchr.c"/>
     <File Name="src/test_strtoul.c"/>
     <File Name="src/test_strtol.c"/>
     <File Name="src/test_strto_pre.c"/>

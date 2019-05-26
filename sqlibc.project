@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="sqlibc" Version="10.0.0" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
+    </Plugin>
+  </Plugins>
   <VirtualDirectory Name="src">
     <VirtualDirectory Name="stdlib">
       <File Name="src/stdlib/strtol_old.c"/>
@@ -12,6 +17,7 @@
       <File Name="src/errno/errno.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="string">
+      <File Name="src/string/strchr.c"/>
       <File Name="src/string/strcpy.c"/>
       <File Name="src/string/strlen.c"/>
       <File Name="src/string/memcmp.c"/>
@@ -64,11 +70,6 @@
     <File Name="inc_internal/strto_internal.h"/>
     <File Name="inc_internal/ctypetable.h"/>
   </VirtualDirectory>
-  <Plugins>
-    <Plugin Name="qmake">
-      <![CDATA[00020001N0005debug0000000000000001N0007release000000000000]]>
-    </Plugin>
-  </Plugins>
   <Description/>
   <Dependencies/>
   <Settings Type="Executable">
