@@ -17,6 +17,11 @@
       <File Name="src/errno/errno.c"/>
     </VirtualDirectory>
     <VirtualDirectory Name="string">
+      <File Name="src/string/strpbrk.c"/>
+      <File Name="src/string/strcat.c"/>
+      <File Name="src/string/strrchr.c"/>
+      <File Name="src/string/strspn.c"/>
+      <File Name="src/string/strstr.c"/>
       <File Name="src/string/strchr.c"/>
       <File Name="src/string/strcpy.c"/>
       <File Name="src/string/strlen.c"/>

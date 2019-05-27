@@ -1,10 +1,13 @@
 # project settings
 BIN_NAME = libsqlibc
 C_SOURCES = src/string/strlen.c src/string/strnlen.c \
-src/string/strtok.c src/string/strcmp.c src/string/strcpy.c src/string/strncpy.c src/string/strncmp.c \
-src/string/memchr.c src/string/memcmp.c src/string/memcpy.c src/string/memmove.c src/string/memset.c \
-src/string/strchr.c \
-src/stdlib/strto.c src/stdlib/strtoul.c src/stdlib/strtol.c\
+src/string/strtok.c src/string/strcmp.c src/string/strcpy.c \
+src/string/strncpy.c src/string/strncmp.c src/string/memchr.c \
+src/string/memcmp.c src/string/memcpy.c src/string/memmove.c \
+src/string/memset.c src/string/strchr.c src/string/strcat.c \
+src/string/strpbrk.c src/string/strrchr.c src/string/strspn.c \
+src/string/strstr.c \
+src/stdlib/strto.c src/stdlib/strtoul.c src/stdlib/strtol.c \
 src/internal/ctypetable.c src/internal/libc_strings.c \
 src/internal/strto_pre.c src/internal/strto_main.c \
 src/ctype/isspace.c src/ctype/isxdigit.c \

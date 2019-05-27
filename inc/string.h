@@ -45,6 +45,11 @@ char *strncpy(char *__restrict__ s1, const char *__restrict__ s2, size_t n);
 char *strcpy(char *__restrict__ s1, const char *__restrict__ s2);
 char *strtok_r(char *__restrict__ s1, const char *__restrict__ s2, char ** pos);
 char *strchr(const char *s, int c);
+char *strcat(char *__restrict__ s1, const char *__restrict__ s2);
+char *strpbrk(const char *s1, const char *s2);
+char *strrchr(const char *s, int c);
+size_t strspn(const char * s1, const char * s2);
+char *strstr(const char *s1, const char *s2);
 
 #ifdef __cplusplus
 }
