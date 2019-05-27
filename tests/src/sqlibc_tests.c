@@ -39,6 +39,11 @@ SOFTWARE.
 #include <test_strtol.h>
 #include <test_strtoul.h>
 #include <test_strchr.h>
+#include <test_strcat.h>
+#include <test_strpbrk.h>
+#include <test_strrchr.h>
+#include <test_strspn.h>
+#include <test_strstr.h>
 
 int minunitRun; /* tests run */
 int minunitFailures; /* tests failed */
@@ -84,6 +89,11 @@ int main()
     testStrtolSuite();
     testStrtoulSuite();
     testStrchrSuite();
+    testStrcatSuite();
+    testStrrchrSuite();
+    testStrpbrkSuite();
+    testStrspnSuite();
+    testStrstrSuite();
     // print something if we have a failure
     if(minunitFailures != 0)
         println("Test failures occured!");

@@ -6,6 +6,11 @@
     </Plugin>
   </Plugins>
   <VirtualDirectory Name="inc">
+    <File Name="inc/test_strpbrk.h"/>
+    <File Name="inc/test_strcat.h"/>
+    <File Name="inc/test_strstr.h"/>
+    <File Name="inc/test_strrchr.h"/>
+    <File Name="inc/test_strspn.h"/>
     <File Name="inc/test_strchr.h"/>
     <File Name="inc/test_strto_main.h"/>
     <File Name="inc/test_strtoul.h"/>
@@ -36,6 +41,11 @@
     </VirtualDirectory>
   </VirtualDirectory>
   <VirtualDirectory Name="src">
+    <File Name="src/test_strstr.c"/>
+    <File Name="src/test_strrchr.c"/>
+    <File Name="src/test_strspn.c"/>
+    <File Name="src/test_strcat.c"/>
+    <File Name="src/test_strpbrk.c"/>
     <File Name="src/test_strchr.c"/>
     <File Name="src/test_strtoul.c"/>
     <File Name="src/test_strtol.c"/>
