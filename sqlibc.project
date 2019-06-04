@@ -167,4 +167,6 @@
       </Completion>
     </Configuration>
   </Settings>
+  <Dependencies Name="debug"/>
+  <Dependencies Name="release"/>
 </CodeLite_Project>
