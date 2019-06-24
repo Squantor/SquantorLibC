@@ -9,7 +9,7 @@ src/test_strcat.c src/test_strpbrk.c src/test_strrchr.c src/test_strspn.c \
 src/test_strstr.c
 CXX_SOURCES +=
 S_SOURCES +=
-INCLUDES = -Iinc -I../inc -I../inc_internal
+INCLUDES = -Iinc -I../inc -I../inc_internal -IsquantorMinUnitC/inc
 COMPILE_C_FLAGS += -std=gnu11 -Wall -Wextra
 COMPILE_CXX_FLAGS += -std=c++17 -Wall -Wextra
 COMPILE_ASM_FLAGS += -c -x assembler-with-cpp
