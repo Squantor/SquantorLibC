@@ -24,6 +24,6 @@ SOFTWARE.
 #ifndef LIBC_STRINGS_H
 #define LIBC_STRINGS_H
 
-extern char libc_digits[];
+extern const char libc_digits[];
 
 #endif

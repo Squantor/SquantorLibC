@@ -24,4 +24,4 @@ SOFTWARE.
 
 #include <libc_strings.h>
 
-char libc_digits[] = "0123456789abcdefghijklmnopqrstuvwxyz";
+const char libc_digits[] = "0123456789abcdefghijklmnopqrstuvwxyz";
