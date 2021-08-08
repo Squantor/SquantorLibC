@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 char * strncpy(char * restrict s1, const char * restrict s2, size_t n)
 {
     char * rc = s1;

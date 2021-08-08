@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 char *strrchr(const char *s, int c)
 {
     size_t i = 0;

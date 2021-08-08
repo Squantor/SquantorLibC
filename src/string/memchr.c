@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 void * memchr(const void * s, int c, size_t n)
 {
     const unsigned char * p = (const unsigned char *) s;

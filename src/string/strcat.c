@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 char *strcat(char *__restrict__ s1, const char *__restrict__ s2)
 {
     char *rc = s1;

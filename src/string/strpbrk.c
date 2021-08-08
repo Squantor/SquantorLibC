@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 char *strpbrk(const char *s1, const char *s2)
 {
     const char *p1 = s1;

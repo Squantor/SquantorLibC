@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 void * memmove(void * s1, const void * s2, size_t n)
 {
     char * dest = (char *) s1;

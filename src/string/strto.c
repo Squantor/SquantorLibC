@@ -25,6 +25,8 @@ SOFTWARE.
 #include <string.h>
 #include <ctype.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 // string to long converter, simple edition
 long int strstol(const char * s)
 {

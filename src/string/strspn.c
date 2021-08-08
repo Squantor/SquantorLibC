@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 size_t strspn(const char * s1, const char * s2)
 {
     size_t len = 0;

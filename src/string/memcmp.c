@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 int memcmp(const void * s1, const void * s2, size_t n)
 {
     const unsigned char * p1 = (const unsigned char *) s1;

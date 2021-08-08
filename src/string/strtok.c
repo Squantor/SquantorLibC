@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 char * strtok_r(char * restrict s1, const char * restrict s2, char ** pos)
 {
     char * tmp = *pos;

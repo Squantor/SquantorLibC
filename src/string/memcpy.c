@@ -23,6 +23,8 @@ SOFTWARE.
 */
 #include <string.h>
 
+#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+
 void * memcpy(void * restrict s1, const void * restrict s2, size_t n)
 {
     char * dest = (char *) s1;
