@@ -27,8 +27,6 @@
 # library settings
 NAME := squantorLibC
 
-# library files and includes
-
 # current makefile base dir relative to Makefile
 BASE_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 
