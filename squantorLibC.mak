@@ -22,7 +22,15 @@
 
 # squantorLibC library files
 #
-# Version: 20200427
+# Version: 20220715
+
+# library settings
+NAME := libraryB
+
+# library files and includes
+
+# get base path
+BASE := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 
 # library files and includes
 FILES += squantorLibC/src/string/strlen.c \
@@ -69,4 +77,6 @@ squantorLibC/src/errno/errno.c
 
 INCLUDES += -IsquantorLibC/inc -IsquantorLibC/inc_internal
 
+# --- nothing user definable below ---
+LIBRARIES += $(NAME)
 
