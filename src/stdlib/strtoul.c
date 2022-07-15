@@ -30,13 +30,13 @@ Implementation taken from PDCLib
 #include <stdint.h>
 #include <strto_internal.h>
 
-unsigned long int strtoul( const char * s, char ** endptr, int base )
-{
-    unsigned long int rc;
-    char sign = '+';
-    const char * p = strto_pre( s, &sign, &base );
-    if ( base < 2 || base > 36 ) return 0;
-    rc = (unsigned long int)strto_main( &p, (unsigned)base, (uintmax_t)ULONG_MAX, (uintmax_t)( ULONG_MAX / base ), (int)( ULONG_MAX % base ), &sign );
-    if ( endptr != NULL ) *endptr = ( p != NULL ) ? (char *) p : (char *) s;
-    return ( sign == '+' ) ? rc : -rc;
+unsigned long int strtoul(const char *s, char **endptr, int base) {
+  unsigned long int rc;
+  char sign = '+';
+  const char *p = strto_pre(s, &sign, &base);
+  if (base < 2 || base > 36) return 0;
+  rc = (unsigned long int)strto_main(&p, (unsigned)base, (uintmax_t)ULONG_MAX, (uintmax_t)(ULONG_MAX / base),
+                                     (int)(ULONG_MAX % base), &sign);
+  if (endptr != NULL) *endptr = (p != NULL) ? (char *)p : (char *)s;
+  return (sign == '+') ? rc : -rc;
 }

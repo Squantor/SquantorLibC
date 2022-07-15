@@ -25,7 +25,6 @@ SOFTWARE.
 #include <string.h>
 #include <ctype.h>
 
-long int strstol(const char * s)
-{
-    return strtol(s, NULL, 0);
+long int strstol(const char* s) {
+  return strtol(s, NULL, 0);
 }

@@ -23,14 +23,12 @@ SOFTWARE.
 */
 #include <string.h>
 
-#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+#pragma GCC optimize("no-tree-loop-distribute-patterns")
 
-size_t strlen (const char * str)
-{
-    size_t len = 0;
-    while(str[len])
-    {
-        ++len;
-    }
-    return len;
+size_t strlen(const char* str) {
+  size_t len = 0;
+  while (str[len]) {
+    ++len;
+  }
+  return len;
 }

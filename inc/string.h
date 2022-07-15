@@ -32,7 +32,7 @@ extern "C" {
 
 void *memchr(const void *s, int c, size_t n);
 void *memset(void *s, int c, size_t n);
-void *memmove(void *s1, const void * s2, size_t n);
+void *memmove(void *s1, const void *s2, size_t n);
 void *memcpy(void *__restrict__ s1, const void *__restrict__ s2, size_t n);
 int memcmp(const void *s1, const void *s2, size_t n);
 
@@ -43,12 +43,12 @@ int strcmp(const char *s1, const char *s2);
 int strncmp(const char *s1, const char *s2, size_t n);
 char *strncpy(char *__restrict__ s1, const char *__restrict__ s2, size_t n);
 char *strcpy(char *__restrict__ s1, const char *__restrict__ s2);
-char *strtok_r(char *__restrict__ s1, const char *__restrict__ s2, char ** pos);
+char *strtok_r(char *__restrict__ s1, const char *__restrict__ s2, char **pos);
 char *strchr(const char *s, int c);
 char *strcat(char *__restrict__ s1, const char *__restrict__ s2);
 char *strpbrk(const char *s1, const char *s2);
 char *strrchr(const char *s, int c);
-size_t strspn(const char * s1, const char * s2);
+size_t strspn(const char *s1, const char *s2);
 char *strstr(const char *s1, const char *s2);
 
 #ifdef __cplusplus

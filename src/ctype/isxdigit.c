@@ -24,7 +24,6 @@ SOFTWARE.
 #include <ctype.h>
 #include <ctypetable.h>
 
-int isxdigit(int c)
-{
-    return(asciiTableCtypes[c].flags & (ctypeIsXdigit));
+int isxdigit(int c) {
+  return (asciiTableCtypes[c].flags & (ctypeIsXdigit));
 }

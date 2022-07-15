@@ -24,7 +24,6 @@ SOFTWARE.
 #include <ctype.h>
 #include <ctypetable.h>
 
-int tolower(int c)
-{
-    return asciiTableCtypes[c].lower;
+int tolower(int c) {
+  return asciiTableCtypes[c].lower;
 }

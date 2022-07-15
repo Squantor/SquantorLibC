@@ -24,7 +24,6 @@ SOFTWARE.
 #include <ctype.h>
 #include <ctypetable.h>
 
-int isspace(int c)
-{
-    return (asciiTableCtypes[c].flags & (ctypeIsSpace));
+int isspace(int c) {
+  return (asciiTableCtypes[c].flags & (ctypeIsSpace));
 }

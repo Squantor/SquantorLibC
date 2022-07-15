@@ -32,34 +32,27 @@ Implementation taken from PDCLib
 #include <strto_internal.h>
 #include <libc_strings.h>
 
-long int strto_main(const char **p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char *sign)
-{
-    long int rc = 0;
-    int digit = -1;
-    const char * x;
-    while((x = memchr(libc_digits, tolower(**p), base)) != NULL)
-    {
-        digit = x - libc_digits;
-        if(((uintmax_t)rc < limval) || (((uintmax_t)rc == limval) && (digit <= limdigit)))
-        {
-            rc = rc * base + (unsigned)digit;
-            ++(*p);
-        }
-        else
-        {
-            errno = ERANGE;
-            /* TODO: Only if endptr != NULL - but do we really want *another* parameter? */
-            while(memchr(libc_digits, tolower(**p), base) != NULL) 
-                ++(*p);
-            /* TODO: This is ugly, but keeps caller from negating the error value */
-            *sign = '+';
-            return error;
-        }
+long int strto_main(const char **p, unsigned int base, uintmax_t error, uintmax_t limval, int limdigit, char *sign) {
+  long int rc = 0;
+  int digit = -1;
+  const char *x;
+  while ((x = memchr(libc_digits, tolower(**p), base)) != NULL) {
+    digit = x - libc_digits;
+    if (((uintmax_t)rc < limval) || (((uintmax_t)rc == limval) && (digit <= limdigit))) {
+      rc = rc * base + (unsigned)digit;
+      ++(*p);
+    } else {
+      errno = ERANGE;
+      /* TODO: Only if endptr != NULL - but do we really want *another* parameter? */
+      while (memchr(libc_digits, tolower(**p), base) != NULL) ++(*p);
+      /* TODO: This is ugly, but keeps caller from negating the error value */
+      *sign = '+';
+      return error;
     }
-    if (digit == -1)
-    {
-        *p = NULL;
-        return 0;
-    }
-    return rc;
+  }
+  if (digit == -1) {
+    *p = NULL;
+    return 0;
+  }
+  return rc;
 }

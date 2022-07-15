@@ -23,14 +23,12 @@ SOFTWARE.
 */
 #include <string.h>
 
-#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+#pragma GCC optimize("no-tree-loop-distribute-patterns")
 
-void * memset(void * s, int c, size_t n)
-{
-    unsigned char * p = (unsigned char *) s;
-    while (n--)
-    {
-        *p++ = (unsigned char) c;
-    }
-    return s;
+void *memset(void *s, int c, size_t n) {
+  unsigned char *p = (unsigned char *)s;
+  while (n--) {
+    *p++ = (unsigned char)c;
+  }
+  return s;
 }

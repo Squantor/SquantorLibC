@@ -23,18 +23,15 @@ SOFTWARE.
 */
 #include <string.h>
 
-#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+#pragma GCC optimize("no-tree-loop-distribute-patterns")
 
-void * memchr(const void * s, int c, size_t n)
-{
-    const unsigned char * p = (const unsigned char *) s;
-    while (n--)
-    {
-        if (*p == (unsigned char) c)
-        {
-            return (void *) p;
-        }
-        ++p;
+void *memchr(const void *s, int c, size_t n) {
+  const unsigned char *p = (const unsigned char *)s;
+  while (n--) {
+    if (*p == (unsigned char)c) {
+      return (void *)p;
     }
-    return NULL;
+    ++p;
+  }
+  return NULL;
 }

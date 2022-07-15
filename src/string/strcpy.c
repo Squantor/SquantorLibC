@@ -23,12 +23,11 @@ SOFTWARE.
 */
 #include <string.h>
 
-#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+#pragma GCC optimize("no-tree-loop-distribute-patterns")
 
-char *strcpy(char *restrict s1, const char *restrict s2)
-{
-    char *r = s1;
-    while((*s1++ = *s2++))
-        ;
-    return r;
+char *strcpy(char *restrict s1, const char *restrict s2) {
+  char *r = s1;
+  while ((*s1++ = *s2++))
+    ;
+  return r;
 }

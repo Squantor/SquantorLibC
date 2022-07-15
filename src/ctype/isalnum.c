@@ -24,7 +24,6 @@ SOFTWARE.
 #include <ctype.h>
 #include <ctypetable.h>
 
-int isalnum(int c)
-{
-    return(asciiTableCtypes[c].flags & ( ctypeIsDigit | ctypeIsLower | ctypeIsUpper));
+int isalnum(int c) {
+  return (asciiTableCtypes[c].flags & (ctypeIsDigit | ctypeIsLower | ctypeIsUpper));
 }

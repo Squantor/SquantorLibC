@@ -24,7 +24,6 @@ SOFTWARE.
 #include <ctype.h>
 #include <ctypetable.h>
 
-int toupper(int c)
-{
-    return asciiTableCtypes[c].upper;
+int toupper(int c) {
+  return asciiTableCtypes[c].upper;
 }

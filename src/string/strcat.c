@@ -23,15 +23,15 @@ SOFTWARE.
 */
 #include <string.h>
 
-#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+#pragma GCC optimize("no-tree-loop-distribute-patterns")
 
-char *strcat(char *__restrict__ s1, const char *__restrict__ s2)
-{
-    char *rc = s1;
-    if (*s1)
-    {
-        while(*++s1);
-    }
-    while((*s1++ = *s2++));
-    return rc;
+char *strcat(char *__restrict__ s1, const char *__restrict__ s2) {
+  char *rc = s1;
+  if (*s1) {
+    while (*++s1)
+      ;
+  }
+  while ((*s1++ = *s2++))
+    ;
+  return rc;
 }

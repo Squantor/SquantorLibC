@@ -23,16 +23,13 @@ SOFTWARE.
 */
 #include <string.h>
 
-#pragma GCC optimize ("no-tree-loop-distribute-patterns")
+#pragma GCC optimize("no-tree-loop-distribute-patterns")
 
-char *strchr(const char *s, int c)
-{
-    do
-    {
-        if(*s == (char)c)
-        {
-            return (char*)s;
-        }
-    } while(*s++);
-    return NULL;
+char *strchr(const char *s, int c) {
+  do {
+    if (*s == (char)c) {
+      return (char *)s;
+    }
+  } while (*s++);
+  return NULL;
 }
