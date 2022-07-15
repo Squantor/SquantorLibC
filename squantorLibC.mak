@@ -28,52 +28,52 @@
 NAME := squantorLibC
 
 # current makefile base dir relative to Makefile
-BASE_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
+LIB_DIR := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 
 # library files and includes
-$(NAME)_LIB_FILES := $(BASE_DIR)/src/string/strlen.c \
-$(BASE_DIR)/src/string/strnlen.c \
-$(BASE_DIR)/src/string/strtok.c \
-$(BASE_DIR)/src/string/strcmp.c \
-$(BASE_DIR)/src/string/strcpy.c \
-$(BASE_DIR)/src/string/strncpy.c \
-$(BASE_DIR)/src/string/strncmp.c \
-$(BASE_DIR)/src/string/memchr.c \
-$(BASE_DIR)/src/string/memcmp.c \
-$(BASE_DIR)/src/string/memcpy.c \
-$(BASE_DIR)/src/string/memmove.c \
-$(BASE_DIR)/src/string/memset.c \
-$(BASE_DIR)/src/string/strchr.c \
-$(BASE_DIR)/src/string/strcat.c \
-$(BASE_DIR)/src/string/strpbrk.c \
-$(BASE_DIR)/src/string/strrchr.c \
-$(BASE_DIR)/src/string/strspn.c \
-$(BASE_DIR)/src/string/strstr.c \
-$(BASE_DIR)/src/stdlib/strto.c \
-$(BASE_DIR)/src/stdlib/strtoul.c \
-$(BASE_DIR)/src/stdlib/strtol.c \
-$(BASE_DIR)/src/internal/ctypetable.c \
-$(BASE_DIR)/src/internal/libc_strings.c \
-$(BASE_DIR)/src/internal/strto_pre.c \
-$(BASE_DIR)/src/internal/strto_main.c \
-$(BASE_DIR)/src/ctype/isalnum.c \
-$(BASE_DIR)/src/ctype/isalpha.c \
-$(BASE_DIR)/src/ctype/isascii.c \
-$(BASE_DIR)/src/ctype/isblank.c \
-$(BASE_DIR)/src/ctype/iscntrl.c \
-$(BASE_DIR)/src/ctype/isdigit.c \
-$(BASE_DIR)/src/ctype/isgraph.c \
-$(BASE_DIR)/src/ctype/islower.c \
-$(BASE_DIR)/src/ctype/isprint.c \
-$(BASE_DIR)/src/ctype/ispunct.c \
-$(BASE_DIR)/src/ctype/isspace.c \
-$(BASE_DIR)/src/ctype/isupper.c \
-$(BASE_DIR)/src/ctype/isxdigit.c \
-$(BASE_DIR)/src/ctype/tolower.c \
-$(BASE_DIR)/src/ctype/toupper.c \
-$(BASE_DIR)/src/errno/errno.c
+$(NAME)_LIB_FILES := $(LIB_DIR)/src/string/strlen.c \
+$(LIB_DIR)/src/string/strnlen.c \
+$(LIB_DIR)/src/string/strtok.c \
+$(LIB_DIR)/src/string/strcmp.c \
+$(LIB_DIR)/src/string/strcpy.c \
+$(LIB_DIR)/src/string/strncpy.c \
+$(LIB_DIR)/src/string/strncmp.c \
+$(LIB_DIR)/src/string/memchr.c \
+$(LIB_DIR)/src/string/memcmp.c \
+$(LIB_DIR)/src/string/memcpy.c \
+$(LIB_DIR)/src/string/memmove.c \
+$(LIB_DIR)/src/string/memset.c \
+$(LIB_DIR)/src/string/strchr.c \
+$(LIB_DIR)/src/string/strcat.c \
+$(LIB_DIR)/src/string/strpbrk.c \
+$(LIB_DIR)/src/string/strrchr.c \
+$(LIB_DIR)/src/string/strspn.c \
+$(LIB_DIR)/src/string/strstr.c \
+$(LIB_DIR)/src/stdlib/strto.c \
+$(LIB_DIR)/src/stdlib/strtoul.c \
+$(LIB_DIR)/src/stdlib/strtol.c \
+$(LIB_DIR)/src/internal/ctypetable.c \
+$(LIB_DIR)/src/internal/libc_strings.c \
+$(LIB_DIR)/src/internal/strto_pre.c \
+$(LIB_DIR)/src/internal/strto_main.c \
+$(LIB_DIR)/src/ctype/isalnum.c \
+$(LIB_DIR)/src/ctype/isalpha.c \
+$(LIB_DIR)/src/ctype/isascii.c \
+$(LIB_DIR)/src/ctype/isblank.c \
+$(LIB_DIR)/src/ctype/iscntrl.c \
+$(LIB_DIR)/src/ctype/isdigit.c \
+$(LIB_DIR)/src/ctype/isgraph.c \
+$(LIB_DIR)/src/ctype/islower.c \
+$(LIB_DIR)/src/ctype/isprint.c \
+$(LIB_DIR)/src/ctype/ispunct.c \
+$(LIB_DIR)/src/ctype/isspace.c \
+$(LIB_DIR)/src/ctype/isupper.c \
+$(LIB_DIR)/src/ctype/isxdigit.c \
+$(LIB_DIR)/src/ctype/tolower.c \
+$(LIB_DIR)/src/ctype/toupper.c \
+$(LIB_DIR)/src/errno/errno.c
 
-$(NAME)_LIB_INCLUDES := -I$(BASE_DIR)/inc -I$(BASE_DIR)/inc_internal
+$(NAME)_LIB_INCLUDES := -I$(LIB_DIR)/inc -I$(LIB_DIR)/inc_internal
 
 # --- nothing user definable below ---
 LIBRARIES += $(NAME)
