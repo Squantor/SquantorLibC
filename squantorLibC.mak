@@ -33,7 +33,7 @@ NAME := squantorLibC
 BASE := $(patsubst %/,%,$(dir $(lastword $(MAKEFILE_LIST))))
 
 # library files and includes
-$(NAME)_LIB_FILES += $(BASE)/src/string/strlen.c \
+$(NAME)_LIB_FILES := $(BASE)/src/string/strlen.c \
 $(BASE)/src/string/strnlen.c \
 $(BASE)/src/string/strtok.c \
 $(BASE)/src/string/strcmp.c \
@@ -75,7 +75,7 @@ $(BASE)/src/ctype/tolower.c \
 $(BASE)/src/ctype/toupper.c \
 $(BASE)/src/errno/errno.c
 
-$(NAME)_LIB_INCLUDES += -I$(BASE)/inc -I$(BASE)/inc_internal
+$(NAME)_LIB_INCLUDES := -I$(BASE)/inc -I$(BASE)/inc_internal
 
 # --- nothing user definable below ---
 LIBRARIES += $(NAME)
